@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register With Us!</title>
+    <style>
+        body {
+            font-family: "Helvetica Neue",sans-serif;
+        }
+
+        fieldset {
+            border:0;
+        }
+
+        legend {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <form method="POST" action="https://request-inspector.glitch.me">
+        <fieldset>
+            <legend><h2>Register With Us!</h2></legend>
+            <label for="email">Email: </label><input type="text" name="email" id="email" placeholder="Email"><br>
+            <label for="pass">Password: </label><input type="password" name="password" id="pass" placeholder="Password"><br>
+            <label for="bio">Biography:</label><br>
+            <textarea name="bio" id="bio" placeholder="A short description of yourself"></textarea>
+        </fieldset>
+
+        <fieldset>
+            <legend>How did you hear about us?</legend>
+            <input type="radio" name="hear" id="radio"      value="radio">      <label for="radio">Radio</label><br>
+            <input type="radio" name="hear" id="bill"       value="bBoard">     <label for="bill">Billboard</label><br>
+            <input type="radio" name="hear" id="internet"   value="internet">   <label for="internet">Internet</label><br>
+            <input type="radio" name="hear" id="other"      value="other">      <label for="other">Other</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>How did you hear about us?</legend>
+            <input type="checkbox" name="hearCheck" id="radioCheck"     value="radioCheck" multiple>    <label for="radioCheck">    Radio</label><br>
+            <input type="checkbox" name="hearCheck" id="billCheck"      value="billCheck" multiple>     <label for="billCheck">     Billboard</label><br>
+            <input type="checkbox" name="hearCheck" id="internetCheck"  value="internetCheck" multiple> <label for="internetCheck"> Internet</label><br>
+            <input type="checkbox" name="hearCheck" id="otherCheck"     value="otherCheck" multiple>    <label for="otherCheck">    Other</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>What web browser are you using?</legend>
+            <select id="browser" name="browser">
+                <option value="chrome">Google Chrome</option>
+                <option value="firefox">Mozilla Firefox</option>
+                <option value="safari">Safari</option>
+                <option value="opera">Opera</option>
+            </select>
+        </fieldset>
+        <fieldset><button>Submit</button></fieldset>
+    </form>
+</body>
+</html>

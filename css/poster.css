@@ -1,0 +1,20 @@
+#master {
+    width: 600px;
+    margin: auto;
+    font-family: "HelveticaNeue-CondensedBold",sans-serif;
+    font-weight: bolder;
+    text-transform: uppercase;
+}
+
+table, tr, td {
+    vertical-align: top;
+    border-collapse: collapse;
+    padding: 0;
+    margin: 0;
+
+    font-size: 1.2em;
+}
+
+.title {
+    line-height: 30px;
+}

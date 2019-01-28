@@ -1,0 +1,39 @@
+body {
+    color: darkblue;
+    background-color: skyblue;
+
+    font-family: "American Typewriter", Serif;
+}
+
+div {
+    background-color: white;
+}
+h2 {
+    font-weight: lighter;
+    color: forestgreen;
+}
+
+header {
+    text-align: center;
+    text-shadow: 2px 2px red;
+    letter-spacing: 0.5em;
+
+    background-color: white;
+    border-radius: 20px;
+}
+
+hr {
+    border: 1px solid white;
+}
+
+img {
+    transform: rotate(10deg);
+}
+
+.centered {
+    text-align: center;
+}
+
+.under {
+    text-decoration: underline;
+}

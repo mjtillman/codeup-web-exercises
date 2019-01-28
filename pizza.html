@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Codeup Pizza Delivery</title>
+    <link rel="stylesheet" href="pizza.css">
+</head>
+<body>
+    <header id="top">Cheese The Day</header>
+    <header id="sub">Free Open-Source Pizza Delivery<br>for Codeup Students and Personnel</header>
+    <form method="POST" action="https://request-inspector.glitch.me">
+        <section>
+            <header>When would you like your pizza?</header>
+            <select name="time">
+                <option value="null">Select time:</option>
+                <option value="asap">ASAP</option>
+                <option value="before">Breakfast Before 9</option>
+                <option value="lunch">Lunchtime</option>
+                <option value="after">After School</option>
+            </select>
+     </section>
+        <section>
+            <header>Toppings</header>
+            <p>
+                <input type="checkbox" name="toppings" value="peppr" multiple>Pepperoni<br>
+                <input type="checkbox" name="toppings" value="sausg" multiple>Sausage<br>
+                <input type="checkbox" name="toppings" value="hmbrg" multiple>Hamburger<br>
+                <input type="checkbox" name="toppings" value="bacon" multiple>Bacon<br>
+                <input type="checkbox" name="toppings" value="ham"   multiple>Ham<br>
+                <input type="checkbox" name="toppings" value="ancho" multiple>Anchovies
+            </p>
+        </section>
+        <section>
+            <header>Who are you?</header>
+            <input type="text" name="name" id="name" placeholder="Name"><br>
+            <input type="email" name="email" id="email" placeholder="Email address"><br><br>
+            <header>Location</header>
+            <p>
+                <input type="radio" name="location" value="xanadu">Xanadu<br>
+                <input type="radio" name="location" value="yosemite">Yosemite<br>
+                <input type="radio" name="location" value="zion">Zion<br>
+                <input type="radio" name="location" value="office">Office
+            </p>
+        </section>
+        <section>
+            <header>Pizzacurity</header>
+            <p>In order to fully protect the valid delivery of pizza, please enter a codeword:</p>
+            <input class="warning" type="password" name="codeword" id="codeword" placeholder="codeword">
+            <p>Your <strong>secure</strong> codeword will be decrypted and used by our delivery personnel
+                to verify your identity.</p>
+            <p>Please do not disclose your codeword to unauthorized persons!</p>
+        </section>
+
+        <input type="hidden" name="theTruth" value="You don't actually get any pizza from this form.">
+        <footer>
+            <button>Submit</button>
+        </footer>
+    </form>
+</body>
+</html>

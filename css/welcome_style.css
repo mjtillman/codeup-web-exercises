@@ -1,0 +1,25 @@
+.fancy-header {
+    text-align: center;
+    color: #1bbf9a;
+}
+
+body {
+    background-color: #bffdd1;
+    background-image: url(../images/welcome_bkg.png);
+
+    font-family: "Helvetica Neue", sans-serif;
+}
+
+td, th {
+    font-size: 20px;
+    padding: 10px;
+}
+
+ul {
+    list-style-type: square;
+}
+
+h1, h2 {
+    color: #44ba5d;
+    text-decoration: underline;
+}

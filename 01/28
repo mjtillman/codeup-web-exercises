@@ -1,0 +1,51 @@
+This Week
+    CSS I + II
+    Positioning
+    Media Queries
+    Grids
+    Mobile-Responsive Styling
+    Bootstrap
+
+    Floating
+        Overflow
+        Clearfix
+        It sucks
+
+    Positioning
+        Relative Position:
+        only applies to one element, does not affect rest of the page
+            up, down, left, right
+            right: 10px;
+                pushes box 10 pixels to the left (pushing from the right)
+                negative values are valid
+            right: -10px;
+                pushes box 10 pixels to the right (negative)
+
+        Absolute Positioning:
+            removes element out of the document flow
+
+        Fixed Positioning:
+            Removes element from document flow and does not move with scrolling
+
+    Extras
+        Frameworks
+        Flexbox
+        Grids
+
+Content Boxes (default)
+    -W/h for content area only
+    -Padding, border increase overall size
+    -Margin will default to the larger size in adjacent elements
+
+    width:
+    height:
+    padding:
+    border:
+    margin:
+
+Border Boxes
+    -W/h controls entire element
+    box-sizing: border-box;
+
+
+Positioning

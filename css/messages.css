@@ -1,0 +1,62 @@
+:root {
+
+    /* Basic variables for message content areas */
+    --defaultBackground: #6d6d6d;
+    --borderColor: lightgrey;
+    --boxFont: Arial, sans-serif;
+    --borderRadius: 10px;
+
+    /* Blue info hex codes*/
+    --blueBackColor:  #CEDFFE;
+    --blueFontColor: #413E98;
+
+    /* Green success hex codes */
+    --greenBackColor: #D0F2DB;
+    --greenFontColor: #317F50;
+
+    /* Yellow warning hex codes */
+    --yellowBackColor: #FCFACB;
+    --yellowFontColor: #948330;
+
+    /* Red error hex codes */
+    --redBackColor: #F9D3D7;
+    --redFontColor: #89263F;
+}
+
+/* Basic settings for content areas classed 'message' */
+.message {
+
+    background-color: var(--defaultBackground);
+    border-radius: var(--borderRadius);
+
+    font-family: var(--boxFont);
+
+    padding: 10px;
+    border: 1px solid var(--borderColor);
+    margin: 5px;
+}
+
+/* Colors here specified in :root */
+#message-info {
+    /*  Info colors are blue */
+    background-color: var(--blueBackColor);
+    color: var(--blueFontColor);
+}
+
+#message-success {
+    /* Success colors are green */
+    background-color: var(--greenBackColor);
+    color: var(--greenFontColor);
+}
+
+#message-warning {
+    /* Warning colors are yellow */
+    background-color: var(--yellowBackColor);
+    color: var(--yellowFontColor);
+}
+
+#message-error {
+    /* Error colors are red */
+    background-color: var(--redBackColor);
+    color: var(--redFontColor);
+}

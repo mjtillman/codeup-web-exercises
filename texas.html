@@ -4,16 +4,50 @@
     <meta charset="UTF-8">
     <title>The Great State of Texas</title>
     <style>
+        body {
+            background-color: black;
+        }
+        .flag {
+            width: 600px;
+            height: 400px;
+            margin: auto;
+        }
+        .blue {
+            width: 200px;
+            height: 400px;
+            float: left;
+            background-color: blue;
+            color: white;
+            font-size: 10em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
 
+        .wrapper {
+            float: right;
+        }
+        .white {
+            width: 400px;
+            height: 200px;
+            background-color: white;
+        }
+        .red {
+            width: 400px;
+            height: 200px;
+            background-color: red;
+        }
     </style>
 </head>
 <body>
     <div class="flag">
         <div class="blue">
-               &bigstar;
+            &bigstar;
         </div>
-        <div class="white"></div>
-        <div class="red"></div>
+        <div class="wrapper">
+            <div class="white"></div>
+            <div class="red"></div>
+        </div>
     </div>
 </body>
 </html>

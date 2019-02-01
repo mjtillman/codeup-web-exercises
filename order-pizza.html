@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bootstrap Pizza Exercise</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/custom.css">
+</head>
+<body class="container">
+
+    <!-- Navigation Bar -->
+    <nav class="d-flex justify-content-between">
+        <!--Left Side of Form-->
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link active" href="#">Cheese The Day!</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Order Online</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Menu</a>
+            </li>
+            <li class="nav-item">
+                <form class="form-inline">
+                    <input class="form-control form-control-sm mr-sm-2" type="search" placeholder="Zipcode">
+                    <button class="btn btn-outline-dark btn-sm my-2 my-sm-0" type="submit">Search in my area!</button>
+                </form>
+            </li>
+        </ul>
+        <!--Sign Up-->
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    <i class="fas fa-user"></i>Sign up
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Main Body -->
+    <main class="container">
+
+        <!--  Jumbotron and Header  -->
+        <div class="jumbotron jumbotron-fluid" id="top">
+            <h1 class="display-4 text-center ">
+                Welcome to Cheese The Day!
+            </h1>
+        </div>
+        <div class="h4">Build your own pizza!</div>
+
+        <!--  Nav-Tabs  -->
+        <ul class="nav nav-tabs" id="pizza-form-tabs" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="crust-size-tab" data-toggle="tab" href="#crust-size" role="tab"><i class="fas fa-pizza-slice"></i> Crust and Size</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="cheese-sauce-tab" data-toggle="tab" href="#cheese-sauce" role="tab"><i class="fas fa-pizza-slice"></i> Cheese and Sauce</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="toppings-tab" data-toggle="tab" href="#toppings" role="tab"><i class="fas fa-pizza-slice"></i> Toppings</a>
+            </li>
+        </ul>
+
+        <form action="#">
+        <!-- Tab Panels with pizza form elements -->
+        <div class="tab-content" id="pizza-form-content">
+
+            <!--Crust / Size Pane -->
+            <div class="card tab-pane show active" id="crust-size">
+                <div class="card-header bg-primary text-white font-weight-bold p-4 border-0">
+                   Choose your crust and size:
+                </div>
+                <div class="card-body">
+
+                    <!-- Hand - Tossed -->
+                    <div class="card m-2">
+                        <div class="card-header font-weight-bold">
+                            Hand-Tossed
+                        </div>
+                        <div class="form-group list-group">
+                            <div class="list-group-item">
+                                Garlic-seasoned crust with a rich, buttery taste.
+                            </div>
+
+                            <!-- Hand-Tossed Radio Boxes -->
+                            <div class="checkbox list-group-item">
+                                <input type="radio" id="sm-hand">
+                                <label for="sm-hand">Small (10")</label>
+                            </div>
+                            <div class="checkbox list-group-item">
+                                <input type="radio" id="m-hand">
+                                <label for="m-hand">Medium (10")</label>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Thin Crust -->
+                    <div class="card m-2">
+                        <div class="card-header font-weight-bold">
+                            Thin Crust
+                        </div>
+                        <ul class="form-group list-group">
+                            <li class="list-group-item">
+                                Thin enough for optimum crispy-to-crunchy ratio.
+                            </li>
+
+                            <!-- Thin Crust Radio Buttons -->
+                            <li class="checkbox list-group-item">
+                                <input type="radio" id="m-thin">
+                                <label for="m-thin">Medium (12")</label>
+                            </li>
+                            <li class="checkbox list-group-item">
+                                <input type="radio" id="l-thin">
+                                <label for="l-thin">Large (12")</label>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                </div>
+
+                <!-- Footer -->
+                <div class="card-footer text-right">
+                    <button type="button" class="btn btn-primary">
+                        Next <i class="fas fa-chevron-circle-right"></i>
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- Cheese / Sauce Pane -->
+            <div class="card tab-pane" id="cheese-sauce" role="tabpanel">
+
+                <div class="card-header bg-primary text-white font-weight-bold p-4 border-0">
+                        Choose cheese and sauce:
+                </div>
+                <div class="card-body">
+
+                    <!--  C H E E S E -->
+                    <div class="card m-2">
+                        <div class="card-header font-weight-bold">
+                            Cheese
+                        </div>
+
+                        <!--Amount of Cheese -->
+                        <div class="card-body">
+                            How much?
+                            <select class="form-control">
+                                <option value="null"> </option>
+                                <option value="lght">Light</option>
+                                <option value="nrml">Normal</option>
+                                <option value="xtra">Extra</option>
+                                <option value="dbl">Double</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <!--  S A U C E  -->
+                    <div class="card m-2">
+                        <div class="card-header font-weight-bold">
+                            Sauce
+                        </div>
+                        <ul class="list-group">
+
+                            <!-- Type of Sauce -->
+                            <li class="list-group-item">
+                                What type?
+                                <select class="form-control">
+                                    <option value="null"> </option>
+                                    <option value="tomat">Tomato</option>
+                                    <option value="marin">Marinara</option>
+                                    <option value="bbq">BBQ Sauce</option>
+                                    <option value="alfd">Alfredo Sauce</option>
+                                </select>
+                            </li>
+
+                            <!-- Amount -->
+                            <li class="list-group-item">
+                                How much?
+                                <select class="form-control">
+                                    <option value="null"> </option>
+                                    <option value="lght">Light</option>
+                                    <option value="nrml">Normal</option>
+                                    <option value="xtra">Extra</option>
+                                </select>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                </div>
+
+                <!-- Cheese / Sauce Footer -->
+                <div class="card-footer text-right">
+                    <button type="button" class="btn btn-primary">
+                        <i class="fas fa-chevron-circle-left"></i> Previous
+                    </button>
+                    <button type="button" class="btn btn-primary">
+                        Next <i class="fas fa-chevron-circle-right"></i>
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- Toppings Pane -->
+            <div class="card tab-pane" id="toppings" role="tabpanel">
+            <div class="card-header bg-primary text-white font-weight-bold p-4 border-0">
+                Choose toppings:
+            </div>
+            <div class="card-body">
+                    <!--  M E A T -->
+                    <div class="card">
+                        <div class="card-header font-weight-bold">
+                            Choose meats:</div>
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <input type="checkbox" value="" id="beef">
+                                <label for="beef">Beef</label>
+                            </li>
+                            <li class="list-group-item">
+                                <input type="checkbox" value="" id="ham">
+                                <label for="ham">Ham</label>
+                            </li>
+                            <li class="list-group-item">
+                                <input type="checkbox" value="" id="steak">
+                                <label for="steak"></label>Philly Steak
+                            </li>
+                            <li class="list-group-item">
+                                <input type="checkbox" value="" id="bacon">
+                                <label for="bacon"></label>Bacon
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!--  N O N - M E A T -->
+                    <div class="card">
+                        <div class="card-header font-weight-bold">
+                            Choose non-meats:
+                        </div>
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <input type="checkbox" value="" id="bell">
+                                <label for="bell">Green Bell Peppers</label>
+                            </li>
+                            <li class="list-group-item">
+                                <input type="checkbox" value="" id="mush">
+                                <label for="mush">Mushrooms</label>
+                            </li>
+                            <li class="list-group-item">
+                                <input type="checkbox" value="" id="onion">
+                                <label for="onion">Onions</label>
+                            </li>
+                            <li class="list-group-item">
+                                <input type="checkbox" value="jala" id="jala">
+                                <label for="jala">Jalapenos</label>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div class="card-footer text-right">
+                <button type="button" class="btn btn-primary"><i class="fas fa-shopping-cart"></i> Checkout</button>
+            </div>
+        </div>
+
+        </div></form>
+
+    </main>
+
+    <!--  Bootstrap Scripts  -->
+    <div>
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+    </div>
+    <!--  Icons from Awesome Fonts  -->
+    <div>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    </div>
+</body>
+</html>

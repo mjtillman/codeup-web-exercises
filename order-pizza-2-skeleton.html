@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cheese the Day!</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+<body>
+    <main class="container">
+        <nav class="navbar navbar-light bg-light">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Cheese The Day!</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Order Online</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Menu</a>
+                </li>
+                <li class="nav-item">
+                    <form class="form-inline">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Zipcode">
+                        <button class="btn btn-sm btn-outline-secondary my-0 my-sm-0" type="button">Search stores near you!</button>
+                    </form>
+                </li>
+            </ul>
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Sign up</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="jumbotron jumbotron-fluid">
+            <h1 class="display-6">Welcome to Cheese The Day!</h1>
+        </div>
+
+        <h5>Build your own pizza!</h5>
+
+        <!--  Pizza Form/ Nav-Tabs -------------------------------->
+        <ul class="nav nav-tabs" id="myTab">
+            <li class="nav-item">
+                <a class="nav-link active" data-toggle="tab" href="#size-crust">Size + Crust</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#cheese-sauce">Cheese + Sauce</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="tab" href="#toppings">Toppings</a>
+            </li>
+        </ul>
+
+        <!--  Pizza Form/ Tab-Content -------------------------------->
+        <form method="POST" action="https://request-inspector.glitch.me/">
+            <div class="tab-content" id="pizza-form">
+
+                <!--  Size + Crust ----------------------------------->
+                <div class="tab-pane show active" id="size-crust">
+                    <div class="card">
+                        <div class="card-header">
+                            Choose a size and crust for your pizza:
+                        </div>
+
+                        <div class="card-body">
+                            <!-- Hand-Tossed Sub-Card  --------------->
+                            <div class="card">
+                               <div class="card-header">
+                                   Hand-Tossed
+                               </div>
+                               <div class="card-body">
+                                   <input type="radio" name="size-crust" id="hand-sm" value="hand-sm">
+                                   <label for="hand-sm">Small (10")</label>
+                                  <input type="radio" name="size-crust" id="hand-m" value="hand-m">
+                                  <label for="hand-m">Medium (12")</label>
+                                </div>
+                            </div>
+
+                            <!-- Thin Crust Sub-Card  ---------------->
+                            <div class="card">
+                                <div class="card-header">
+                                    Thin Crust
+                                </div>
+                                <div class="card-body">
+                                    <input type="radio" name="size-crust" id="thin-m" value="thin-m">
+                                    <label for="thin-m">Small (10")</label>
+                                    <input type="radio" name="size-crust" id="thin-lrg" value="thin-lrg">
+                                    <label for="thin-lrg">Medium (12")</label>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="card-footer text-right">
+                            Next
+                        </div>
+                    </div>
+                </div>
+
+                <!--  Cheese + Sauce --------------------------------->
+                <div class="tab-pane" id="cheese-sauce">
+                    <div class="card">
+                        <div class="card-header">
+                            Choose your cheese and sauce:
+                        </div>
+                        <div class="card-body">
+
+                            <!--  Cheese Sub-Card  -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <label for="cheese-amnt">Cheese</label>
+                                </div>
+                                <div class="card-body">
+                                    How much?
+                                    <select name="cheese-amnt" id="cheese-amnt">
+                                        <option value="null"> </option>
+                                        <option value="lite">Light</option>
+                                        <option value="nrml">Normal</option>
+                                        <option value="xtra">Extra</option>
+                                        <option value="dbl">Double</option>
+                                    </select>
+                                </div>
+                            </div>
+
+
+                            <!-- Sauce Sub-Card -->
+                            <div class="card">
+                                <div class="card-header">
+                                    Sauce
+                                </div>
+                                <div class="card-body">
+                                    <label for="sauce-type">What sauce?</label>
+                                    <select name="sauce-type" id="sauce-type">
+                                        <option value="null"> </option>
+                                        <option value="tomat">Tomato</option>
+                                        <option value="marin">Marinara</option>
+                                        <option value="bbq">BBQ Sauce</option>
+                                        <option value="alfrd">Alfredo Sauce</option>
+                                    </select>
+                                    <label for="sauce-amnt">Amount</label>
+                                    <select name="sauce-amnt" id="sauce-amnt">
+                                        <option value="null"> </option>
+                                        <option value="lite">Light</option>
+                                        <option value="nrml">Normal</option>
+                                        <option value="xtra">Extra</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="card-footer text-right">
+                            Previous Next
+                        </div>
+                    </div>
+                </div>
+
+                <!--  Toppings  -------------------------------------->
+                <div class="tab-pane" id="toppings">
+                    <div class="card">
+                        <div class="card-header">
+                            Toppings:
+                        </div>
+                        <div class="card-body">
+
+                            <!--  Meat Topping Sub-Card  -->
+                            <div class="card">
+                                <div class="card-header">
+                                    Meats
+                                </div>
+                                <div class="card-body">
+                                    <input type="checkbox" name="meat-top" id="beef" value="beef">
+                                    <label for="beef">Beef</label>
+                                    <input type="checkbox" name="meat-top" id="ham" value="ham">
+                                    <label for="ham">Ham</label>
+                                    <input type="checkbox" name="meat-top" id="steak" value="steak">
+                                    <label for="steak">Philly Steak</label>
+                                    <input type="checkbox" name="meat-top" id="bacon" value="bacon">
+                                    <label for="bacon">Bacon</label>
+                                </div>
+                            </div>
+
+                            <!--  Non-Meat Topping Sub-Card  -->
+                            <div class="card">
+                                <div class="card-header">
+                                    Non-Meats
+                                </div>
+                                <div class="card-body">
+                                    <input type="checkbox" name="other-top" id="grnpep" value="grnpep">
+                                    <label for="grnpep">Green Pepper</label>
+                                    <input type="checkbox" name="other-top" id="mush" value="mush">
+                                    <label for="mush">Mushroom</label>
+                                    <input type="checkbox" name="other-top" id="onion" value="onion">
+                                    <label for="onion">Onions</label>
+                                    <input type="checkbox" name="other-top" id="jala" value="jala">
+                                    <label for="jala">Jalapenos</label>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="card-footer text-right">
+                            <input type="submit">
+                        </div>
+                    </div>
+                </div>
+
+            </div>  <!-- End of tab-content -->
+        </form>
+
+    </main>
+    <footer>
+
+    </footer>
+    <!--bootstrap scripts-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+
+</body>
+</html>

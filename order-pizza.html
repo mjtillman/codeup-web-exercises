@@ -8,19 +8,26 @@
 </head>
 <body class="container">
 
-    <!-- Navigation Bar -->
+    <!--  Navigation Bar  --------------------------------------------->
     <nav class="d-flex justify-content-between">
-        <!--Left Side of Form-->
+
+        <!-- Left Side of Form  -->
         <ul class="nav">
             <li class="nav-item">
-                <a class="nav-link active" href="#">Cheese The Day!</a>
+                <a class="nav-link active" href="#">
+                    <i class="fas fa-pizza-slice"></i>
+                    Cheese The Day!
+                </a>
             </li>
+
             <li class="nav-item">
                 <a class="nav-link" href="#">Order Online</a>
             </li>
+
             <li class="nav-item">
                 <a class="nav-link" href="#">Menu</a>
             </li>
+
             <li class="nav-item">
                 <form class="form-inline">
                     <input class="form-control form-control-sm mr-sm-2" type="search" placeholder="Zipcode">
@@ -28,69 +35,72 @@
                 </form>
             </li>
         </ul>
-        <!--Sign Up-->
+
+        <!--  Sign Up  -->
         <ul class="nav">
             <li class="nav-item">
                 <a class="nav-link" href="#">
-                    <i class="fas fa-user"></i>Sign up
-                </a>
-            </li>
+                    <i class="fas fa-user"></i> Sign up</a></li>
         </ul>
+
     </nav>
 
-    <!-- Main Body -->
+    <!-- Main Body --------------------------------------------------->
     <main class="container">
 
         <!--  Jumbotron and Header  -->
         <div class="jumbotron jumbotron-fluid" id="top">
-            <h1 class="display-4 text-center ">
-                Welcome to Cheese The Day!
-            </h1>
+            <h1 class="display-4 text-center">Welcome to Cheese The Day!</h1>
         </div>
         <div class="h4">Build your own pizza!</div>
 
-        <!--  Nav-Tabs  -->
+<!-- N A V T A B S -->
         <ul class="nav nav-tabs" id="pizza-form-tabs" role="tablist">
             <li class="nav-item">
-                <a class="nav-link active" id="crust-size-tab" data-toggle="tab" href="#crust-size" role="tab"><i class="fas fa-pizza-slice"></i> Crust and Size</a>
+                <a class="nav-link active" id="crust-size-tab" data-toggle="tab" href="#crust-size" role="tab">
+                    <span class="badge badge-dark rounded-circle">1</span> Crust and Size</a>
             </li>
+
             <li class="nav-item">
-                <a class="nav-link" id="cheese-sauce-tab" data-toggle="tab" href="#cheese-sauce" role="tab"><i class="fas fa-pizza-slice"></i> Cheese and Sauce</a>
+                <a class="nav-link" id="cheese-sauce-tab" data-toggle="tab" href="#cheese-sauce" role="tab">
+                    <span class="badge badge-dark rounded-circle">2</span> Cheese and Sauce</a>
             </li>
+
             <li class="nav-item">
-                <a class="nav-link" id="toppings-tab" data-toggle="tab" href="#toppings" role="tab"><i class="fas fa-pizza-slice"></i> Toppings</a>
+                <a class="nav-link" id="toppings-tab" data-toggle="tab" href="#toppings" role="tab">
+                    <span class="badge badge-dark rounded-circle">3</span> Toppings</a>
             </li>
         </ul>
 
+
+        <!--  Start of Form Element  -->
         <form action="#">
+
+
         <!-- Tab Panels with pizza form elements -->
         <div class="tab-content" id="pizza-form-content">
 
             <!--Crust / Size Pane -->
             <div class="card tab-pane show active" id="crust-size">
                 <div class="card-header bg-primary text-white font-weight-bold p-4 border-0">
-                   Choose your crust and size:
+                   Choose your crust and pizza size:
                 </div>
                 <div class="card-body">
 
                     <!-- Hand - Tossed -->
                     <div class="card m-2">
-                        <div class="card-header font-weight-bold">
-                            Hand-Tossed
-                        </div>
-                        <div class="form-group list-group">
-                            <div class="list-group-item">
-                                Garlic-seasoned crust with a rich, buttery taste.
-                            </div>
+                        <div class="card-header font-weight-bold">Hand-Tossed</div>
+                        <div class="form-group list-group list-group-flush">
+                            <div class="list-group-item">Garlic-seasoned crust with a rich, buttery taste.</div>
 
                             <!-- Hand-Tossed Radio Boxes -->
                             <div class="checkbox list-group-item">
-                                <input type="radio" id="sm-hand">
+                                <input type="radio" name="crust" value="sm-hand" id="sm-hand">
                                 <label for="sm-hand">Small (10")</label>
                             </div>
                             <div class="checkbox list-group-item">
-                                <input type="radio" id="m-hand">
-                                <label for="m-hand">Medium (10")</label>
+                                <input type="radio" name="crust" value="m-hand" id="m-hand">
+                                <label for="m-hand">Medium (12")</label>
                             </div>
 
                         </div>
@@ -101,7 +111,7 @@
                         <div class="card-header font-weight-bold">
                             Thin Crust
                         </div>
-                        <ul class="form-group list-group">
+                        <ul class="form-group list-group list-group-flush">
                             <li class="list-group-item">
                                 Thin enough for optimum crispy-to-crunchy ratio.
                             </li>
@@ -113,7 +123,7 @@
                             </li>
                             <li class="checkbox list-group-item">
                                 <input type="radio" id="l-thin">
-                                <label for="l-thin">Large (12")</label>
+                                <label for="l-thin">Large (14")</label>
                             </li>
 
                         </ul>
@@ -163,7 +173,7 @@
                         <div class="card-header font-weight-bold">
                             Sauce
                         </div>
-                        <ul class="list-group">
+                        <ul class="list-group list-group-flush">
 
                             <!-- Type of Sauce -->
                             <li class="list-group-item">
@@ -215,7 +225,7 @@
                     <div class="card">
                         <div class="card-header font-weight-bold">
                             Choose meats:</div>
-                        <ul class="list-group">
+                        <ul class="list-group list-group-flush">
                             <li class="list-group-item">
                                 <input type="checkbox" value="" id="beef">
                                 <label for="beef">Beef</label>
@@ -240,7 +250,7 @@
                         <div class="card-header font-weight-bold">
                             Choose non-meats:
                         </div>
-                        <ul class="list-group">
+                        <ul class="list-group list-group-flush">
                             <li class="list-group-item">
                                 <input type="checkbox" value="" id="bell">
                                 <label for="bell">Green Bell Peppers</label>

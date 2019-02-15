@@ -228,7 +228,7 @@
     }
 
     console.log(longestStringChecker(zionMammals));
-    console.log(longestStringChecker(zionAmphibiansReptiles));
+    console.log(longestStringChecker(zionAmphibiansReptilesFish));
 
 //  5.
 //  Create a function that takes in two arrays of elements, including

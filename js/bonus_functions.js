@@ -304,7 +304,7 @@ function dieSideGenerator() {
 
 var rollResultGenerator = function(num) {
     return Math.floor(Math.random() * num) + 1;
-}
+};
 
 var diceSides = dieSideGenerator();
 

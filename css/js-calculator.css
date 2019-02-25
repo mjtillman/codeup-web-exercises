@@ -1,12 +1,39 @@
-* {
-    padding: 0;
-    margin: 0;
-}
-
 body {
     background-color: #7cd0a4;
     margin-top: 100px;
     text-align: center;
+}
+
+.container {
+    box-sizing: border-box;
+    display: table;
+    width: 350px;
+    padding: 2em;
+    margin: 1em auto 0 auto;
+    border-radius: 2em;
+    background-color: #6fbaa2;
+}
+
+.row {
+    width: 100%;
+    display: table;
+    padding: 0;
+    margin: 0;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.col1 {
+    display: none;
+}
+
+.col2 {
+    display: inline-table;
+    width: 284px;
 }
 
 h1 {
@@ -18,37 +45,16 @@ h1 {
     color: #1f3c2d;
 }
 
-.container {
-    box-sizing: border-box;
-    width: 350px;
-    padding: 2em;
-    margin: 1em auto 0 auto;
-    border-radius: 2em;
-
-    background-color: #6fbaa2;
-}
-
-.row {
-    width: 100%;
-}
-
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
 input[type=text] {
     display: inline-block;
+    width: 33.333%;
     box-sizing: border-box;
-    width: 33.33%;
     float: left;
 
     background-color: white;
     padding: 0.5em;
-    border: 1px dimgrey;
+    border: 0;
     margin: 0;
-    outline: none;
 
     color: dimgrey;
     text-align: center;
@@ -60,14 +66,56 @@ input[type=text] {
 button {
     display: inline-block;
     width: 25%;
+    height: 55px;
     background-color: #feeb77;
     color: #bf941d;
     font-size: 1.5em;
+    float: left;
+    border: 0;
+}
+
+.button2 {
+    display: inline-block;
+    width: 16.667%;
+    height: 55px;
+    background-color: #feeb77;
+    color: #bf941d;
+    font-size: 1em;
     float: left;
     padding: 0.5em;
     border: 0;
 }
 
+#num0 {
+    width: 50%;
+    border-bottom-left-radius: 0.3em;
+}
+
 #divide, #multiply, #subtract, #add, #equals {
     background-color: #ffbd01;
+}
+
+@media screen and (min-width: 800px) {
+    .container {
+        box-sizing: border-box;
+        width: calc(840px - 4em);
+        padding: 2em;
+        margin: 1em auto 0 auto;
+        border-radius: 2em;
+        background-color: #6fbaa2;
+    }
+
+    .col1 {
+        display: inline-block;
+        width: 426px;
+        padding: 0;
+        margin: 0;
+    }
+
+    .col2 {
+        display: inline-block;
+        width: 284px;
+        padding: 0;
+        margin: 0;
+    }
 }

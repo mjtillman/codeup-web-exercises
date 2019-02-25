@@ -1,164 +1,5 @@
 "use strict";
 
-titleChanger();
-listenerSetup();
-
-function listenerSetup(){
-    let buttons = document.getElementsByClassName("button");
-    let buttons2 = document.getElementsByClassName("button2");
-    let listener = [];
-    let listener2 = [];
-
-    listener[0] = function() {calcClear();};
-    listener[1] = function() {calcOperand("%");};
-    listener[2] = function() {calcOperand("/");};
-
-    listener[3] = function() {calcNum(1);};
-    listener[4] = function() {calcNum(2);};
-    listener[5] = function() {calcNum(3);};
-
-    listener[6] = function() {calcOperand("*");};
-
-    listener[7] = function() {calcNum(4);};
-    listener[8] = function() {calcNum(5);};
-    listener[9] = function() {calcNum(6);};
-
-    listener[10] = function() {calcOperand("-");};
-
-    listener[11] = function() {calcNum(7);};
-    listener[12] = function() {calcNum(8);};
-    listener[13] = function() {calcNum(9);};
-
-    listener[14] = function() {calcOperand("+");};
-
-    listener[15] = function() {calcNum(0);};
-    listener[16] = function() {calcNum(".");};
-    listener[17] = function() {calcEquals();};
-
-    listener2[0] = function() {};
-    listener2[1] = function() {};
-    listener2[2] = function() {};
-    listener2[3] = function() {};
-    listener2[4] = function() {};
-    listener2[5] = function() {};
-    listener2[6] = function() {};
-    listener2[7] = function() {squared(currentNum);};
-    listener2[8] = function() {cubed();};
-    listener2[9] = function() {exponent();};
-    listener2[10] = function() {eToThePowerOf();};
-    listener2[11] = function() {tenToThePowerOf();};
-    listener2[12] = function() {fractionOfOne();};
-    listener2[13] = function() {square_Root();};
-    listener2[14] = function() {cube_Root();};
-    listener2[15] = function() {yRoot();};
-    listener2[16] = function() {naturalLog();};
-    listener2[17] = function() {commonLog();};
-    listener2[18] = function() {factorial();};
-    listener2[19] = function() {sine();};
-    listener2[20] = function() {cosine();};
-    listener2[21] = function() {tangent();};
-    listener2[22] = function() {};
-    listener2[23] = function() {eulersNumber();};
-    listener2[24] = function() {};
-    listener2[25] = function() {radians();};
-    listener2[26] = function() {sinh();};
-    listener2[27] = function() {cosh();};
-    listener2[28] = function() {tanh();};
-    listener2[29] = function() {pi();};
-    listener2[30] = function() {};
-    for (let i = 0; i < buttons.length; i++) {
-        buttons[i].addEventListener("click", listener[i]);
-    }
-
-    for (let i = 0; i < buttons2.length; i++) {
-        buttons2[i].addEventListener("click", listener2[i]);
-    }
-}
-
-function calcNum(enteredNum) {
-    let currentNum = "";
-
-    let operandEntered = false;
-    let operandType = "";
-    let numInput1 = document.getElementById("numInput1");
-    let numInput2 = document.getElementById("numInput2");
-    let opInput = document.getElementById("operandInput");
-
-    console.log(num1 + " " + currentNum);
-    currentNum += enteredNum;
-    if (!operandEntered) {
-        numInput1.setAttribute("value", currentNum);
-    } else if (operandEntered) {
-        numInput2.setAttribute("value", currentNum);
-    }
-}
-
-function calcOperand(operand) {
-    console.log(num1 + " " + currentNum);
-    let num1 = "";
-    let num2 = "";
-
-    operandEntered = true;
-    num1 = currentNum;
-    currentNum = "";
-    opInput.setAttribute("value", operand);
-
-    return operand;
-}
-
-function calcEquals() {
-    num1 = +num1;
-    num2 = +currentNum;
-    let calculated = "";
-
-    console.log("currentNum: " + currentNum + " num1: " + num1 + ", "  + operandType + ", " + num2);
-
-
-    switch (operand) {
-        case "%":
-            calculated = modulus (num1, num2);
-            break;
-        case "/":
-            calculated = divide(num1, num2);
-            break;
-        case "*":
-            calculated = multiply(num1, num2);
-            break;
-        case "+":
-            calculated = add(num1, num2);
-            break;
-        case "-":
-            calculated = subtract(num1, num2);
-            break;
-        default:
-            console.log("Something is wrong");
-    }
-
-    // console.log(num1 + " " + operandType + " " + num2 + " = " + calculated);
-
-    numInput1.setAttribute("value", calculated);
-    num1 = calculated;
-    currentNum = num1;
-    num2 = "";
-    calculated = "";
-    operandType = "";
-
-    opInput.setAttribute("value", "");
-    numInput2.setAttribute("value", "");
-}
-
-function calcClear() {
-    currentNum = "";
-    num1 = "";
-    num2 = "";
-    operandType = "";
-    operandEntered = false;
-    numInput1.setAttribute("value", "");
-    opInput.setAttribute("value", "");
-    numInput2.setAttribute("value", "");
-    console.clear();
-}
-
 function titleChanger() {
     let calcTitle = document.getElementsByTagName("h1");
 
@@ -172,93 +13,274 @@ function titleChanger() {
         }
     });
 }
+titleChanger();
 
-//////////////////////////////////////////////////////////////////////////
+let calc = {
+    enteredNum: "",
+    currentNum: "",
+    num1: "",
+    num2: "",
+    operandEntered: false,
+    operand: "",
+    calcResult: 0,
 
+    display: function() {
+        if (!calc.operandEntered) {
+            numInput1.setAttribute("value", calc.currentNum);
+        } else if (calc.operandEntered) {
+            numInput2.setAttribute("value", calc.currentNum);
+        }
+    },
 
-function add(num1, num2) {
-    return +num1 + +num2;
+    modulus: function() {
+        this.calcResult = +this.num1 % +this.num2;
+    },
+    divide: function() {
+        this.calcResult = +this.num1 / +this.num2;
+    },
+    multiply: function() {
+        this.calcResult = +this.num1 * +this.num2;
+    },
+    subtract: function() {
+        this.calcResult = +this.num1 - +this.num2;
+    },
+    add: function() {
+        this.calcResult = +this.num1 + +this.num2;
+    },
+
+    /////
+    /////
+    /////
+    /////
+    /////
+    /////
+
+    /////
+    square: function() {
+        this.currentNum = Math.pow(this.currentNum, 2);
+        this.display();
+    },
+    cube: function() {
+        this.currentNum = Math.pow(this.currentNum, 3);
+        this.display();
+    },
+    /////
+    eulerExp: function() {
+        this.currentNum = Math.pow(Math.E, this.currentNum);
+        this.display();
+    },
+    tenExp: function() {
+        this.currentNum = Math.pow(10, this.currentNum);
+        this.display();
+    },
+
+    /////
+    squareRoot: function() {
+        this.currentNum = Math.sqrt(this.currentNum);
+        this.display();
+    },
+    cubeRoot: function() {
+        this.currentNum = Math.cbrt(this.currentNum);
+        this.display();
+    },
+    nthRoot: function() {
+
+    },
+    naturalLog: function() {
+        this.currentNum = Math.log(this.currentNum);
+        this.display();
+    },
+    tenLog: function() {
+        this.currentNum = Math.log10(this.currentNum);
+        this.display();
+    },
+
+    factorial: function() {
+        for (let i = this.currentNum - 1; i > 1; i--) {
+            this.currentNum *= i;
+        }
+        this.display();
+    },
+    sin: function() {
+        this.currentNum = Math.sin(this.currentNum);
+        this.display();
+    },
+    cos: function() {
+        this.currentNum = Math.cos(this.currentNum);
+        this.display();
+    },
+    tan: function() {
+        this.currentNum = Math.tan(this.currentNum);
+        this.display();
+    },
+    euler: function() {
+        this.currentNum = Math.E;
+        this.display();
+    },
+    /////
+
+    radians: function() {
+
+    },
+    sinh: function() {
+        this.currentNum = Math.sinh(this.currentNum);
+        this.display();
+    },
+    cosh: function() {
+        this.currentNum = Math.cosh(this.currentNum);
+        this.display();
+    },
+    tanh: function() {
+        this.currentNum = Math.tanh(this.currentNum);
+        this.display();
+    },
+    pi: function() {
+        this.currentNum = Math.PI;
+        this.display();
+    },
+    /////
+
+    reset: function() {
+        this.enteredNum = "";
+        this.currentNum = "";
+        this.num1 = "";
+        this.num2 = "";
+        this.operandEntered = false;
+        this.operand = "";
+        this.calcResult = 0;
+    }
+};
+
+let numInput1 = document.getElementById("numInput1");
+let numInput2 = document.getElementById("numInput2");
+let opInput = document.getElementById("operandInput");
+let buttons = document.getElementsByClassName("button");
+let buttons2 = document.getElementsByClassName("button2");
+
+let list = [];
+list[0] = function() {calcClear();};
+list[1] = function() {calcOperand("%");};
+list[2] = function() {calcOperand("/");};
+
+list[3] = function() {calcNum(1);};
+list[4] = function() {calcNum(2);};
+list[5] = function() {calcNum(3);};
+
+list[6] = function() {calcOperand("*");};
+
+list[7] = function() {calcNum(4);};
+list[8] = function() {calcNum(5);};
+list[9] = function() {calcNum(6);};
+
+list[10] = function() {calcOperand("-");};
+
+list[11] = function() {calcNum(7);};
+list[12] = function() {calcNum(8);};
+list[13] = function() {calcNum(9);};
+
+list[14] = function() {calcOperand("+");};
+
+list[15] = function() {calcNum(0);};
+list[16] = function() {calcNum(".");};
+list[17] = function() {calcEquals();};
+
+let list2 = [];
+list2[0] = function() {};
+list2[1] = function() {};
+list2[2] = function() {};
+list2[3] = function() {};
+list2[4] = function() {};
+list2[5] = function() {};
+
+list2[6] = function() {};
+list2[7] = function() {calc.square();};
+list2[8] = function() {calc.cube();};
+list2[9] = function() {};
+list2[10] = function() {calc.eulerExp();};
+list2[11] = function() {calc.tenExp();};
+
+list2[12] = function() {};
+list2[13] = function() {calc.squareRoot();};
+list2[14] = function() {calc.cubeRoot();};
+list2[15] = function() {calc.nthRoot();};
+list2[16] = function() {calc.naturalLog()};
+list2[17] = function() {calc.tenLog()};
+
+list2[18] = function() {calc.factorial();};
+list2[19] = function() {calc.sin();};
+list2[20] = function() {calc.cos();};
+list2[21] = function() {calc.tan();};
+list2[22] = function() {calc.euler();};
+list2[23] = function() {};
+
+list2[24] = function() {};
+list2[25] = function() {calc.sinh();};
+list2[26] = function() {calc.cosh();};
+list2[27] = function() {calc.tanh();};
+list2[28] = function() {calc.pi();};
+list2[29] = function() {};
+
+for (let i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener("click", list[i]);
 }
 
-function subtract(num1, num2) {
-    return +num1 - +num2;
+for (let i = 0; i < buttons2.length; i++) {
+    buttons2[i].addEventListener("click", list2[i]);
 }
 
-function multiply(num1, num2) {
-    return +num1 * +num2;
+function calcNum(num) {
+    calc.enteredNum = num;
+    calc.currentNum += num;
+    calc.display();
 }
 
-function divide(num1, num2) {
-    return +num1 / +num2;
+function calcOperand(operand) {
+    calc.operandEntered = true;
+    calc.operand = operand;
+    calc.num1 = +calc.currentNum;
+    calc.currentNum = "";
+    calc.enteredNum = "";
+    opInput.setAttribute("value", operand);
 }
 
-function modulus(num1, num2) {
-    return +num1 % +num2;
+function calcEquals() {
+    calc.num2 = +calc.currentNum;
+
+    switch (calc.operand) {
+        case "%":
+            calc.modulus();
+            break;
+        case "/":
+            calc.divide();
+            break;
+        case "*":
+            calc.multiply();
+            break;
+        case "+":
+            calc.add();
+            break;
+        case "-":
+            calc.subtract();
+            break;
+        default:
+            console.log("Something is wrong");
+    }
+
+    numInput1.setAttribute("value", calc.calcResult);
+    calc.num1 = calc.calcResult;
+    calc.currentNum = calc.num1;
+    calc.operand = "";
+    calc.operandEntered = false;
+    calc.calcResult = 0;
+
+    opInput.setAttribute("value", "");
+    numInput2.setAttribute("value", "");
 }
 
-function squared(currentNum) {
-    currentNum = Math.pow(+currentNum, 2);
-    numInput1.setAttribute("value", currentNum);
-    num1 = currentNum;
-    console.log(num1 + " " + currentNum);
-}
+function calcClear() {
+    calc.reset();
 
-function cubed(num1) {
-    currentNum = Math.pow(+currentNum, 3);
-    numInput1.setAttribute("value", currentNum);
-}
-
-function exponent(num1, num2) {
-    return Math.pow(num1, num2);
-}
-
-function eToThePowerOf(num1) {
-     return Math.pow(Math.E, num1)
-}
-
-function tenToThePowerOf(num1) {
-    return Math.pow(10, num1)
-}
-
-
-function square_Root(num1) {
-    return Math.sqrt(num1);
-}
-
-function cube_Root(num1) {
-    return Math.cbrt(num1);
-}
-
-function yRoot(num1, num2) {
-    return Math.pow(num2, (1 / num1))
-}
-
-function naturalLog(num1) {
-    return Math.log(num1);
-}
-
-function commonLog(num1) {
-    return Math.log(num1) / Math.log(10);
-}
-
-function factorial(num1) {
-    let factorialProduct = 0;
-    for (let i = num1; i > 1; i++) {factorialProduct *= i;}
-    return factorialProduct;
-}
-
-function sine(num1) {
-    return Math.sin(num1);
-}
-
-function cosine(num1) {
-    return Math.cos(num1);
-}
-
-function tangent(num1) {
-    return Math.tan(num1);
-}
-
-function eulersNumber() {
-    return Math.E;
+    numInput1.setAttribute("value", "");
+    opInput.setAttribute("value", "");
+    numInput2.setAttribute("value", "");
 }

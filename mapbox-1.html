@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Map Exercise</title>
+    <!-- Mapbox CSS -->
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+    <style>
+        #map {
+            /* the width and height may be set to any size */
+            width: 70%;
+            height: 500px;
+            background-color: #5b6e96;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="map"></div>
+
+
+    <!-- Mapbox JS -->
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+
+    <!-- Secret Key -->
+    <script src=".gitignore/keys.js"></script>
+
+    <!-- Custom JS -->
+    <script>
+        let delay = 5000;
+
+        mapboxgl.accessToken = myMapboxKey;
+
+        let map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v9',
+            zoom: 9,
+            center: [-98.4916, 29.4252]
+        });
+
+        let fiveSecondMap = setTimeout(function () {
+            new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/mapbox/satellite-v9',
+                zoom: 3,
+                center: [-98.4916, 29.4252]
+            });
+            console.log("It has been 5 seconds.");
+        }, delay);
+
+    </script>
+</body>
+</html>

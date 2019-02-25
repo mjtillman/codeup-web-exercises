@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Map Exercise</title>
-    <!-- Mapbox CSS -->
+    <title>Mini Map Exercise 4</title>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
     <style>
         #map {
@@ -11,44 +10,41 @@
             width: 70%;
             height: 500px;
             background-color: #5b6e96;
-            margin: 100px auto;
         }
     </style>
 </head>
 <body>
+    <h1>Mini Map Exercise 4</h1>
 
     <div id="map"></div>
 
 
-    <!-- Mapbox JS -->
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
-
-    <!-- Secret Key -->
     <script src=".gitignore/keys.js"></script>
 
     <!-- Custom JS -->
     <script>
         mapboxgl.accessToken = myMapboxKey;
 
-        let map = new mapboxgl.Map({
-            container: 'map',
-            style: 'mapbox://styles/mapbox/streets-v9',
-            zoom: 9,
-            center: [-95.1183, 29.5377]
+        var map = new mapboxg1.Map({
+            container: "map",
+            style: "mapbox://styles/mapbox/streets-v9",
+            zoom: 12,
         });
 
-        let fiveSecondMap = setTimeout(function () {
-            map
-                .setZoom(3)
-                .setCenter([-95.1183, 29.5377])
-                .style("mapbox://styles/mapbox/satellite-v9")
-        }, 5000);
+        // var codeupAddress = "600 Navarro St #350, San Antonio, TX 78205";
+        //
+        // geocode(codeupAddress, myMapboxKey).then(function (data) {
+        //
+        // });
 
-        let marker = new mapboxgl.Marker();
+        geocode("Cleveland, TX", myMapboxKey).then(function (data) {
+            map.setCenter(data);
+        });
 
-        marker.setLngLat([x,y]);
-        marker.addTo(map);
+        reverse.Geocode([])
 
     </script>
+
 </body>
 </html>

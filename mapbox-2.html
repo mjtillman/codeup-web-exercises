@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Map Exercise</title>
-    <!-- Mapbox CSS -->
+    <title>Mini Map Exercise 2</title>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
     <style>
         #map {
@@ -11,14 +10,16 @@
             width: 70%;
             height: 500px;
             background-color: #5b6e96;
-            margin: 100px auto;
         }
     </style>
 </head>
 <body>
+    <h1>Mini Map Exercise 2</h1>
+    <!--  In this file, create a Mapbox map that
+     shows Washington D.C. and places a marker on
+     the Lincoln Memorial.-->
 
     <div id="map"></div>
-
 
     <!-- Mapbox JS -->
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
@@ -33,22 +34,21 @@
         let map = new mapboxgl.Map({
             container: 'map',
             style: 'mapbox://styles/mapbox/streets-v9',
-            zoom: 9,
-            center: [-95.1183, 29.5377]
+            zoom: 13,
+            center: [-77.0353, 38.8895]
         });
 
-        let fiveSecondMap = setTimeout(function () {
-            map
-                .setZoom(3)
-                .setCenter([-95.1183, 29.5377])
-                .style("mapbox://styles/mapbox/satellite-v9")
-        }, 5000);
 
         let marker = new mapboxgl.Marker();
 
-        marker.setLngLat([x,y]);
+        marker.setLngLat([-77.0502,38.8893]);
         marker.addTo(map);
 
+        let popup = new mapboxgl.Popup()
+            .setLngLat
+            .setHTML
+            .addto(map);
     </script>
+
 </body>
 </html>

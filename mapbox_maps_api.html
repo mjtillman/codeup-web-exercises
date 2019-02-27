@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mapbox API Exercise</title>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+    <!-- Custom CSS -->
+    <style>
+        #map {
+            /* the width and height may be set to any size */
+            width: 90%;
+            height: 600px;
+            background-color: #5b6e96;
+        }
+    </style>
+</head>
+<body>
+    <h1>Mapbox API Exercise</h1>
+    <div id="map"></div>
+
+    <!-- Mapbox JS -->
+    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+
+    <!-- Secret Key -->
+    <script src=".gitignore/keys.js"></script>
+
+    <!-- Mapbox Geocoder Util Methods -->
+    <script src="js/mapbox-geocoder-utils.js"></script>
+
+    <!-- Custom JS -->
+    <script>
+
+        mapboxgl.accessToken = myMapboxKey;
+
+        let map = new mapboxgl.Map({
+            container: 'map',
+            style: 'mapbox://styles/mapbox/streets-v9',
+            zoom: 11,
+            center: [-98.58, 29.46913]
+        });
+
+        let faveRest = [
+            {
+                name: "Pizza Classics",
+                address: "3440 N St Mary's St, San Antonio, TX 78215",
+                popupHTML: "<h1>Pizza Classics</h1><p><em>Recommended:</em><br>4 Cheese Pizza</p>"
+            },
+            {
+                name: "India Palace",
+                address: "8474 Fredericksburg Rd, San Antonio, TX 78229",
+                popupHTML: "<h1>India Palace</h1><p><em>Recommended:</em><br>Lamb Vindaloo, Chicken Korma</p>"
+            },
+            {
+                name: "Bakery Lorraine",
+                address: "306 Pearl Pkwy #110, San Antonio, TX 78215",
+                popupHTML: "<h1>Bakery Lorraine</h1><p><em>Recommended:</em><br>Almond Croissant, Earl Grey Macrons</p>"
+            },
+            {
+                name: "Golden Wok",
+                address: "1410 SW Loop 410, San Antonio, TX 78227",
+                popupHTML: "<h1>Golden Wok</h1><p><em>Recommended:</em><br>Sai Ling Gai (Lemon Chicken)</p>"
+            },
+        ];
+
+        // var firstMap = setTimeout(function () {
+        //     geocode(faveRest.address, myMapboxKey).then(function(result) {
+        //         initialMap.setCenter(result);
+        //         initialMap.setZoom(5);
+        //     });
+        // }, 5000);
+        //
+        // var secondMap = setTimeout(function () {
+        //     geocode(faveRest.address, myMapboxKey).then(function(result) {
+        //         initialMap.setCenter(result);
+        //         initialMap.setZoom(10);
+        //     });
+        // }, 10000);
+
+        // var thirdMap = setTimeout(function () {
+
+        function mapMarker(placeList) {
+
+            let mapMark = [];
+
+            placeList.forEach(function(place) {
+                console.log("hello");
+                geocode(place.address, myMapboxKey).then(function(result) {
+                    let mapMark = new mapboxgl.Marker()
+                        .setLngLat(result)
+                        .addTo(map)
+                    let mapPopup = new mapboxgl.Popup()
+                        .setLngLat(result)
+                        .setHTML(place.popupHTML)
+                    mapMark.setPopup(mapPopup)
+                });
+
+            });
+
+        }
+
+        mapMarker(faveRest);
+
+
+        // }, 15000);
+
+
+
+
+
+        // function placeMarkerAndPopup(faveRest, token, map) {
+        //     geocode(faveRest.address, token).then(function(coordinates) {
+        //         // var popup = new mapboxgl.Popup()
+        //         //     .setHTML(info.popupHTML);
+        //         var marker = new map.Marker()
+        //             .setLngLat(coordinates)
+        //             .addTo(map)
+        //             .setPopup(popup);
+        //         popup.addTo(map);
+        //     });
+        // }
+        //
+        // placeMarkerAndPopup(faveRest, myMapboxKey, thirdMap);
+
+    </script>
+</body>
+</html>

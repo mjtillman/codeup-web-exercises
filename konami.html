@@ -11,9 +11,9 @@
             crossorigin="anonymous"></script>
     <script>
         "use strict";
+
         let konamiCode = ["↑", "↑", "↓", "↓", "←", "→", "←", "→", "B",
             "A", "Start"];
-
         let myCode = [];
 
         $(document).keyup(function (event) {
@@ -42,17 +42,61 @@
                 default:
                     console.log("Nope");
             }
+
             $('.content').html(myCode);
 
             if (myCode.join() === konamiCode.join()) {
                 console.log("30 lives!");
                 $('.content').css('color', 'red');
 
-                var thirtyLives = setTimeout(function() {
-                $('#video').css('visibility', 'visible');
+                let thirtyLives = setTimeout(function() {
+                $('.video').css('visibility', 'visible');
                 }, 500);
+
+                let discoTime = setInterval(function () {
+                    $('body').css('background-color', discoFunction())
+                }, 125);
             }
         });
+
+        function discoFunction() {
+            let colors = ["AliceBlue","AntiqueWhite","Aqua","Aquamarine",
+                "Azure","Beige","Bisque","Black","BlanchedAlmond","Blue",
+                "BlueViolet","Brown","BurlyWood","CadetBlue","Chartreuse",
+                "Chocolate","Coral","CornflowerBlue","Cornsilk","Crimson",
+                "Cyan","DarkBlue","DarkCyan","DarkGoldenRod","DarkGray",
+                "DarkGrey","DarkGreen","DarkKhaki","DarkMagenta",
+                "DarkOliveGreen","Darkorange","DarkOrchid","DarkRed",
+                "DarkSalmon","DarkSeaGreen","DarkSlateBlue",
+                "DarkSlateGray","DarkSlateGrey","DarkTurquoise",
+                "DarkViolet","DeepPink","DeepSkyBlue","DimGray","DimGrey",
+                "DodgerBlue","FireBrick","FloralWhite","ForestGreen",
+                "Fuchsia","Gainsboro","GhostWhite","Gold","GoldenRod",
+                "Gray","Grey","Green","GreenYellow","HoneyDew","HotPink",
+                "IndianRed","Indigo","Ivory","Khaki","Lavender",
+                "LavenderBlush","LawnGreen","LemonChiffon","LightBlue",
+                "LightCoral","LightCyan","LightGoldenRodYellow",
+                "LightGray","LightGrey","LightGreen","LightPink",
+                "LightSalmon","LightSeaGreen","LightSkyBlue",
+                "LightSlateGray","LightSlateGrey","LightSteelBlue",
+                "LightYellow","Lime","LimeGreen","Linen","Magenta",
+                "Maroon","MediumAquaMarine","MediumBlue","MediumOrchid",
+                "MediumPurple","MediumSeaGreen","MediumSlateBlue",
+                "MediumSpringGreen","MediumTurquoise","MediumVioletRed",
+                "MidnightBlue","MintCream","MistyRose","Moccasin",
+                "NavajoWhite","Navy","OldLace","Olive","OliveDrab",
+                "Orange","OrangeRed","Orchid","PaleGoldenRod","PaleGreen",
+                "PaleTurquoise","PaleVioletRed","PapayaWhip","PeachPuff",
+                "Peru","Pink","Plum","PowderBlue","Purple","Red",
+                "RosyBrown","RoyalBlue","SaddleBrown","Salmon",
+                "SandyBrown","SeaGreen","SeaShell","Sienna","Silver",
+                "SkyBlue","SlateBlue","SlateGray","SlateGrey","Snow",
+                "SpringGreen","SteelBlue","Tan","Teal","Thistle","Tomato",
+                "Turquoise","Violet","Wheat","White","WhiteSmoke",
+                "Yellow","YellowGreen"];
+
+            return colors[Math.floor(Math.random() * 147)];
+        }
 
     </script>
     <style>
@@ -65,10 +109,13 @@
             color: lawngreen;
             font-family: "Press Start 2P", sans-serif;
         }
+
         h1 {
+            display: inline;
             margin-top: 2em;
             font-size: 2em;
         }
+
         .content {
             max-width: 500px;
             margin: 1.5em auto 1em auto;
@@ -78,17 +125,32 @@
             color: grey;
             font-size: 3em;
         }
-        #video {
+
+        .video {
             visibility:  hidden;
+            display: inline;
+        }
+
+        img {
+            width: 60px;
+            height: auto;
         }
     </style>
 </head>
 <body>
-    <h1>Konami Code</h1>
+    <div>
+        <div class="video">
+            <img src="images/partyparrot.gif" alt="30 Lives">
+        </div>
+        <h1>Konami Code</h1>
+        <div class="video">
+            <img src="images/partyparrot.gif" alt="30 Lives">
+        </div>
+    </div>
     <div class="content">
 
     </div>
-    <div id="video">
+    <div class="video">
         <iframe width="560" height="315"
                 src="https://www.youtube.com/embed/rs53c0q6kHg"
                 frameborder="0" allow="accelerometer; autoplay;

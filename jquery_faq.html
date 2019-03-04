@@ -11,13 +11,95 @@
 
         $(document).ready(function() {
 
+            $('#close').on('click', function() {
+                $(annoy).hide();
+            });
+
+            $('h2').hide();
+            $('h2').delay(8000).fadeToggle(3000);
+
+
             $('#answerToggler').click(function(event) {
                 $('dd').toggleClass('invisible');
             });
 
             $('dt').click(function(event) {
                 $(this).toggleClass('highlight');
-            })
+            });
+
+            $('#yellow').on('click', function() {
+                $('ul').each(function(i, e) {
+                    $(this).children().last().css('background-color', 'yellow');
+                });
+            });
+
+            // $('#state-parks-texas-heading').on('click', function() {
+            //     $('#state-parks-texas').children().css('font-weight', 'bold');
+            // });
+            // $('#national-parks-heading').on('click', function() {
+            //     $('#national-parks').children().css('font-weight', 'bold');
+            // });
+            //
+            // $('#southwest-parks-heading').on('click', function() {
+            //     $('#southwest-parks').children().css('font-weight', 'bold');
+            // });
+
+            $('h3').next().hide();
+
+            $('h3').on('click', function() {
+                $(this).next().slideToggle();
+               $(this).next().children().css('font-weight', 'bold');
+            });
+
+            $('li').on('click', function() {
+                $(this).parent().children().first().css('color', 'blue');
+            });
+
+            let currentSwap1Class = 'swap1';
+            let currentSwap2Class = 'swap2';
+            let currentSwap3Class = 'swap3';
+            let oldClass = '';
+
+            $('#swap1-btn').on('click', function() {
+                oldClass = currentSwap1Class;
+                $('#first-swap, #second-swap').removeClass();
+                $('#first-swap').addClass(currentSwap2Class);
+                $('#second-swap').addClass(currentSwap1Class);
+                currentSwap1Class = currentSwap2Class;
+                currentSwap2Class = oldClass;
+            });
+
+            $('#swap2-btn').on('click', function() {
+                oldClass = currentSwap2Class;
+                $('#second-swap').removeClass();
+
+                let random = Math.floor(Math.random() * 2);
+
+                if (random === 0) {     //switches 2 and 3
+                    $('#third-swap').removeClass();
+                    $('#second-swap').addClass(currentSwap3Class);
+                    $('#third-swap').addClass(currentSwap2Class);
+                    currentSwap2Class = currentSwap3Class;
+                    currentSwap3Class = oldClass;
+
+                } else {                //  switches 2 and 1
+                    $('#first-swap').removeClass();
+                    $('#first-swap').addClass(currentSwap2Class);
+                    $('#second-swap').addClass(currentSwap1Class);
+                    currentSwap2Class = currentSwap1Class;
+                    currentSwap1Class = oldClass;
+                }
+            });
+
+            $('#swap3-btn').on('click', function() {
+                oldClass = currentSwap3Class;
+                $('#third-swap, #second-swap').removeClass();
+                $('#third-swap').addClass(currentSwap2Class);
+                $('#second-swap').addClass(currentSwap3Class);
+                currentSwap3Class = currentSwap2Class;
+                currentSwap2Class = oldClass;
+
+            });
 
         });
     </script>
@@ -43,10 +125,62 @@
             visibility: hidden;
         }
 
+        .centered {
+            width: fit-content;
+            margin: 10em auto;
+        }
+
+        .frame-div {
+            display: inline-block;
+            margin: 0 1em;
+            text-align: center;
+        }
+
+        .swap1 {
+            width: 200px;
+            height: 200px;
+            padding: 0;
+            border: 3px solid black;
+            margin-bottom: 1em;
+
+            background-image: url('images/swap1.png');
+        }
+
+        .swap2 {
+            width: 200px;
+            height: 200px;
+            padding: 0;
+            border: 3px solid black;
+            margin-bottom: 1em;
+
+            background-image: url('images/swap2.png');
+        }
+
+        .swap3 {
+            width: 200px;
+            height: 200px;
+            padding: 0;
+            border: 3px solid black;
+            margin-bottom: 1em;
+
+            background-image: url('images/swap3.png');
+        }
+
+        h1 {
+            display: inline;
+        }
     </style>
 </head>
 <body>
     <h1>jQuery FAQ Exercise</h1>
+
+    <div id="annoy">
+        <h1>Would you like to sign up for our newsletter?</h1>
+        <span id="close">x</span>
+    </div>
+
+    <h2>Please register for our National Park mailing list!</h2>
+
     <input id='answerToggler' type='button' value='Toggle answers'>
     <dl>
         <dt>1. Which National Parks are in Texas?</dt>
@@ -117,5 +251,52 @@
         nonumy feugiat graecis. Nibh lucilius te mea. Graeci meliore
         offendit sed ut. Mel viris sententiae ex.</dd>
     </dl>
+    <input id='yellow' type='button' value='Toggle yellow'>
+    <h3 id="national-parks-heading">National Parks</h3>
+    <ul id="national-parks">
+        <li>Arches</li>
+        <li>Badlands</li>
+        <li>Carlsbad Caverns</li>
+        <li>Denali</li>
+        <li>Everglades</li>
+    </ul>
+    <h3 id="state-parks-texas-heading">State Parks of Texas</h3>
+    <ul id="state-parks-texas">
+        <li>Abilene</li>
+        <li>Big Bend</li>
+        <li>Choke Canyon</li>
+        <li>Davis Mountains</li>
+        <li>Enchanted Rock</li>
+    </ul>
+    <h3 id="southwest-parks-heading">National Parks of the Southwest</h3>
+    <ul id="southwest-parks">
+        <li>Grand Canyon</li>
+        <li>Saguaro</li>
+        <li>Petrified Forest</li>
+        <li>Carlsbad Caverns</li>
+        <li>Black Canyon of the Gunnison</li>
+        <li>Great Sand Dunes</li>
+        <li>Mesa Verde</li>
+        <li>Rocky Mountain</li>
+    </ul>
+
+    <div class="centered">
+        <div class="frame-div">
+            <div id="first-swap" class="swap1"></div>
+            <input id='swap1-btn' type='button' value='Swap'>
+        </div>
+
+        <div class="frame-div">
+            <div id="second-swap" class="swap2"></div>
+            <input id='swap2-btn' type='button' value='Swap'>
+        </div>
+
+        <div class="frame-div">
+            <div id="third-swap" class="swap3"></div>
+            <input id='swap3-btn' type='button' value='Swap'>
+        </div>
+    </div>
+
+
 </body>
 </html>

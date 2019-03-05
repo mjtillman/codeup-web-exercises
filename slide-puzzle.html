@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Slide Puzzle</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+    <script src="js/slide-puzzle.js"></script>
+    <style>
+        * {
+            padding: 0;
+            border: 0;
+            margin: 0;
+            text-align: center;
+        }
+
+         body {
+             margin-top: 3em;
+         }
+
+        .puzzle-container {
+            width: fit-content;
+            margin: 2em auto;
+        }
+
+        .puzzle-row {
+            width: fit-content;
+        }
+
+        #place-0, #place-1, #place-2, #place-3 {
+            display: inline-block;
+            width: 200px;
+            height: 200px;
+            margin: 0;
+            background-color: lightgrey;
+        }
+
+        .class-0 {
+            background-image: url('images/slide-puzzle/01.png');
+        }
+
+        .class-1 {
+            background-image: url('images/slide-puzzle/02.png');
+        }
+
+        .class-2 {
+            background-image: url('images/slide-puzzle/04.png');
+        }
+
+    </style>
+</head>
+<body>
+    <h1>Slide Puzzle</h1>
+    <h4>Use arrow keys (← ↑ ↓ →) to move tiles.
+       </h4>
+    <div class="puzzle-container">
+        <div class="puzzle-row">
+            <div id="place-0"></div>
+            <div id="place-1"></div>
+            <!--<div class="place" id="init-3"></div>-->
+        </div>
+        <div class="puzzle-row">
+            <div id="place-2"></div>
+            <div id="place-3"></div>
+            <!--<div class="place" id="init-6"></div>-->
+        </div>
+        <!--<div class="puzzle-row">-->
+            <!--<div class="place" id="init-7"></div>-->
+            <!--<div class="place" id="init-8"></div>-->
+            <!--<div class="place" id="init-9"></div>-->
+        <!--</div>-->
+    </div>
+</body>
+</html>

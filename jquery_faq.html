@@ -6,6 +6,9 @@
     <script src="https://code.jquery.com/jquery-3.3.1.js"
             integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
             crossorigin="anonymous"></script>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
     <script>
         "use strict";
 
@@ -15,9 +18,8 @@
                 $(annoy).hide();
             });
 
-            $('h2').hide();
-            $('h2').delay(8000).fadeToggle(3000);
-
+            $('.modal').hide();
+            $('.modal').delay(8000).fadeToggle(1000);
 
             $('#answerToggler').click(function(event) {
                 $('dd').toggleClass('invisible');
@@ -32,17 +34,6 @@
                     $(this).children().last().css('background-color', 'yellow');
                 });
             });
-
-            // $('#state-parks-texas-heading').on('click', function() {
-            //     $('#state-parks-texas').children().css('font-weight', 'bold');
-            // });
-            // $('#national-parks-heading').on('click', function() {
-            //     $('#national-parks').children().css('font-weight', 'bold');
-            // });
-            //
-            // $('#southwest-parks-heading').on('click', function() {
-            //     $('#southwest-parks').children().css('font-weight', 'bold');
-            // });
 
             $('h3').next().hide();
 
@@ -136,50 +127,56 @@
             text-align: center;
         }
 
-        .swap1 {
+        .swap1, .swap2, .swap3 {
             width: 200px;
             height: 200px;
             padding: 0;
-            border: 3px solid black;
+            border: 1px solid black;
             margin-bottom: 1em;
+        }
 
+        .swap1 {
             background-image: url('images/swap1.png');
         }
-
         .swap2 {
-            width: 200px;
-            height: 200px;
-            padding: 0;
-            border: 3px solid black;
-            margin-bottom: 1em;
-
             background-image: url('images/swap2.png');
         }
-
         .swap3 {
-            width: 200px;
-            height: 200px;
-            padding: 0;
-            border: 3px solid black;
-            margin-bottom: 1em;
-
             background-image: url('images/swap3.png');
         }
 
-        h1 {
-            display: inline;
-        }
     </style>
 </head>
 <body>
-    <h1>jQuery FAQ Exercise</h1>
-
-    <div id="annoy">
+    <div class="alert alert-info" id="annoy">
         <h1>Would you like to sign up for our newsletter?</h1>
-        <span id="close">x</span>
+        <span id="close"><strong>x</strong></span>
     </div>
 
-    <h2>Please register for our National Park mailing list!</h2>
+    <h1>jQuery FAQ Exercise</h1>
+    <!--<div class="modal">-->
+        <!--<h2>Please register for our National Park mailing list!</h2>-->
+    <!--</div>-->
+
+    <div class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"></h5>
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span>&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Please register for our National Park mailing list.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">Register!</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <input id='answerToggler' type='button' value='Toggle answers'>
     <dl>
@@ -211,45 +208,27 @@
 
         <dt>5. What is the best time of year to visit the Parks?</dt>
         <dd class="invisible">Lorem ipsum dolor sit amet, qui ut probatus
-        perfecto. Lorem tollit qualisque quo at, ex dico nihil est. Dico
-        pertinax qualisque te sed, posse inani omnesque qui at, sea ut
-        nonumy feugiat graecis. Nibh lucilius te mea. Graeci meliore
-        offendit sed ut. Mel viris sententiae ex.</dd>
+        perfecto.</dd>
 
         <dt>6. What kinds of activities are available in the Parks?</dt>
         <dd class="invisible">Lorem ipsum dolor sit amet, qui ut probatus
-        perfecto. Lorem tollit qualisque quo at, ex dico nihil est. Dico
-        pertinax qualisque te sed, posse inani omnesque qui at, sea ut
-        nonumy feugiat graecis. Nibh lucilius te mea. Graeci meliore
-        offendit sed ut. Mel viris sententiae ex.</dd>
+        perfecto.</dd>
 
         <dt>7. Should I bring my pet to the Parks?</dt>
         <dd class="invisible">Lorem ipsum dolor sit amet, qui ut probatus
-        perfecto. Lorem tollit qualisque quo at, ex dico nihil est. Dico
-        pertinax qualisque te sed, posse inani omnesque qui at, sea ut
-        nonumy feugiat graecis. Nibh lucilius te mea. Graeci meliore
-        offendit sed ut. Mel viris sententiae ex.</dd>
+        perfecto.</dd>
 
         <dt>8. Where can I buy groceries in the Parks?</dt>
         <dd class="invisible">Lorem ipsum dolor sit amet, qui ut probatus
-        perfecto. Lorem tollit qualisque quo at, ex dico nihil est. Dico
-        pertinax qualisque te sed, posse inani omnesque qui at, sea ut
-        nonumy feugiat graecis. Nibh lucilius te mea. Graeci meliore
-        offendit sed ut. Mel viris sententiae ex.</dd>
+        perfecto.</dd>
 
         <dt>9. What kinds of animals and insects live in the Parks?</dt>
         <dd class="invisible">Lorem ipsum dolor sit amet, qui ut probatus
-        perfecto. Lorem tollit qualisque quo at, ex dico nihil est. Dico
-        pertinax qualisque te sed, posse inani omnesque qui at, sea ut
-        nonumy feugiat graecis. Nibh lucilius te mea. Graeci meliore
-        offendit sed ut. Mel viris sententiae ex.</dd>
+        perfecto.</dd>
 
         <dt>10. What kinds of plants live in the Parks?</dt>
         <dd class="invisible">Lorem ipsum dolor sit amet, qui ut probatus
-        perfecto. Lorem tollit qualisque quo at, ex dico nihil est. Dico
-        pertinax qualisque te sed, posse inani omnesque qui at, sea ut
-        nonumy feugiat graecis. Nibh lucilius te mea. Graeci meliore
-        offendit sed ut. Mel viris sententiae ex.</dd>
+        perfecto.</dd>
     </dl>
     <input id='yellow' type='button' value='Toggle yellow'>
     <h3 id="national-parks-heading">National Parks</h3>
@@ -296,7 +275,5 @@
             <input id='swap3-btn' type='button' value='Swap'>
         </div>
     </div>
-
-
 </body>
 </html>

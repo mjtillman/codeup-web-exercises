@@ -1,0 +1,78 @@
+[
+    {
+        "title": "Hammer",
+        "quantity": 25,
+        "categories": [
+            "tool"
+        ],
+        "price": 20
+    }, {
+        "title": "Drill",
+        "quantity": 5,
+        "categories": [
+            "tool",
+            "powered"
+        ],
+        "price": 100
+    }, {
+        "title": "Mower",
+        "quantity": 5,
+        "categories": [
+            "tool",
+            "gas",
+            "outdoor"
+        ],
+        "price": 200
+    }, {
+        "title": "Screwdrivers",
+        "quantity": 25,
+        "categories": [
+            "tool"
+        ],
+        "price": 10
+    },
+    {
+        "title": "Chisel",
+        "quantity": 18,
+        "categories": [
+            "tool",
+            "blade",
+            "woodworking"
+        ],
+        "price": 15
+    }, {
+        "title": "Hand Saw",
+        "quantity": 4,
+        "categories": [
+            "tool",
+            "blade",
+            "woodworking"
+        ],
+        "price": 21
+    }, {
+        "title": "Mallet",
+        "quantity": 6,
+        "categories": [
+            "tool",
+            "woodworking"
+        ],
+        "price": 17
+    }, {
+        "title": "Jointer",
+        "quantity": 1,
+        "categories": [
+            "tool",
+            "powered",
+            "woodworking"
+        ],
+        "price": 700
+    }, {
+        "title": "Hand Plane",
+        "quantity": 2,
+        "categories": [
+            "tool",
+            "woodworking"
+        ],
+        "price": 30
+    }
+]

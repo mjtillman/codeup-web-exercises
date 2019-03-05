@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Fizzbuzz Warmup</title>
+    <script>
+        function fizz(num) {
+            for (let i = 1; i < num; i++) {
+                if (i % 15 === 0) {
+                    console.log(i + ': ' + 'fizzbuzz');
+                } else if (i % 5 === 0) {
+                    console.log(i + ': ' + 'buzz');
+                } else if (i % 3 === 0) {
+                    console.log(i + ': ' + 'fizz');
+                } else {
+                    console.log(i);
+                }
+            }
+        }
+
+        fizz(100);
+    </script>
+</head>
+<body>
+    <h1>Fizzbuzz Warmup</h1>
+</body>
+</html>

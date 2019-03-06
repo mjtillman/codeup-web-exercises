@@ -4,77 +4,32 @@
     <meta charset="UTF-8">
     <title>Animals of Zion National Park</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"
+            integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+            crossorigin="anonymous"></script>
+
     <link rel="stylesheet" href="index-style.css">
 </head>
 <body>
     <main>
         <header>
-            <h1>Cool Animals of Zion National Park</h1>
+            <h1>Zion Animals</h1>
         </header>
-        <article>
-            <h2>Mammals</h2>
+        <article class="animals">
 
-            <h3>Bats, Rabbits, and Rodents</h3>
-                <ul>
-                    <li>Spotted Bat</li>
-                    <li>Yuma Myotis</li>
-                    <li>American Pika</li>
-                    <li>Black-tailed Jackrabbit</li>
-                    <li>Uinta Chipmunk</li>
-                    <li>Yellow-bellied Marmot</li>
-                    <li>Golden-mantled Ground Squirrel</li>
-                    <li>Red Squirrel</li>
-                    <li>Northern Flying Squirrel</li>
-                    <li>Long-tailed Pocket Mouse</li>
-                    <li>American Beaver</li>
-                    <li>Pinyon Mouse</li>
-                    <li>North American Porcupine</li>
-                    <li>Merriam's Shrew</li>
-                </ul>
-            <h3>Carnivores and Other Big Mammals</h3>
-                <ul>
-                    <li>Coyote</li>
-                    <li>Kit Fox</li>
-                    <li>American Black Bear</li>
-                    <li>Ermine</li>
-                    <li>Ringtail</li>
-                    <li>Northern Racoon</li>
-                    <li>Long-tailed Weasel</li>
-                    <li>American Badger</li>
-                    <li>Western Spotted Skunk</li>
-                    <li>Striped Skunk</li>
-                    <li>Mountain Lion</li>
-                    <li>Bobcat</li>
-                    <li>Elk</li>
-                    <li>Mule Deer</li>
-                    <li>Bighorn Sheep</li>
-                </ul>
         </article>
-        <article>
-            <h2>Amphibians, Reptiles, and Fish</h2>
-            <ul>
-                <li>Tiger Salamander</li>
-                <li>Northern Leopard Frog</li>
-                <li>Great Basin Collared Lizard</li>
-                <li>Desert Horned Lizard</li>
-                <li>Greater Short-horned Lizard</li>
-                <li>Western Skink</li>
-                <li>Gila Monster</li>
-                <li>Desert Tortoise</li>
-                <li>Western Patch-nosed Snake</li>
-                <li>Sonoran Mountain Kingsnake</li>
-                <li>Terrestrial Gartersnake</li>
-                <li>Western Rattlesnake</li>
-                <li>Flannelmouth Sucker</li>
-            </ul>
-        </article>
-        <article>
-            <h2>Birds</h2>
-        </article>
-        <article>
-            <h2>Arthropods</h2>
-        </article>
-
     </main>
+    <script>
+    (function() {
+        "use strict";
+
+        $.ajax("data/zion-animals.json").done(function(data, status, req) {
+           console.log(data);
+        }).fail(function() {
+            $('.animals').html('404- Animals Not Found');
+        });
+
+    })();
+    </script>
 </body>
 </html>

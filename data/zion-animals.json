@@ -1,0 +1,175 @@
+[
+  {
+      "animal": "Spotted Bat",
+      "type": "mammal",
+      "subtype": "bat"
+  }, {
+      "animal": "Yuma Myotis",
+      "type": "mammal",
+      "subtype": "bat"
+  }, {
+      "animal": "American Pika",
+      "type": "mammal",
+      "subtype": "rabbit"
+  }, {
+      "animal": "Black-tailed Jackrabbit",
+      "type": "mammal",
+      "subtype": "rabbit"
+  }, {
+      "animal": "Uinta Chipmunk",
+      "type": "mammal",
+      "subtype": "rodent"
+  }, {
+      "animal": "Yellow-bellied Marmot",
+      "type": "mammal",
+      "subtype": "rodent"
+}, {
+      "animal": "Golden-mantled Ground Squirrel",
+      "type": "mammal",
+      "subtype": "rodent"
+  }, {
+      "animal": "Red Squirrel",
+      "type": "mammal",
+      "subtype": "rodent"
+  }, {
+     "animal": "Northern Flying Squirrel",
+      "type": "mammal",
+      "subtype": "rodent"
+  }, {
+      "animal": "Long-tailed Pocket Mouse",
+      "type": "mammal",
+      "subtype": "rodent"
+  }, {
+      "animal": "American Beaver",
+      "type": "mammal",
+      "subtype": "rodent"
+  }, {
+      "animal": "Pinyon Mouse",
+      "type": "mammal",
+      "subtype": "rodent"
+  }, {
+      "animal": "North American Porcupine",
+      "type": "mammal"
+
+  }, {
+      "animal": "Merriam's Shrew",
+      "type": "mammal"
+
+  }, {
+      "animal" : "Coyote",
+      "type": "mammal"
+
+  }, {
+      "animal" : "Kit",
+      "type": "mammal"
+
+  }, {
+      "animal" : "Fox",
+      "type": "mammal"
+
+  }, {
+      "animal" : "American Black Bear",
+      "type": "mammal",
+      "subtype": "bear"
+}, {
+      "animal" : "Ermine",
+      "type": "mammal"
+
+  }, {
+      "animal" : "Ringtail",
+      "type": "mammal"
+
+  }, {
+      "animal" : "Northern Racoon",
+      "type": "mammal"
+
+  }, {
+      "animal" : "Long-tailed Weasel",
+      "type": "mammal"
+
+  }, {
+      "animal" : "American Badger",
+      "type": "mammal"
+
+  }, {
+      "animal" : "Western Spotted Skunk",
+      "type": "mammal",
+      "subtype": "weasel"
+  }, {
+      "animal" : "Striped Skunk",
+      "type": "mammal",
+      "subtype": "weasel"
+  }, {
+      "animal" : "Mountain Lion",
+      "type": "mammal"
+
+  }, {
+      "animal" : "Bobcat",
+      "type": "mammal"
+
+  }, {
+      "animal" : "Elk",
+      "type": "mammal"
+
+  }, {
+      "animal" : "Mule Deer",
+      "type": "mammal"
+
+  }, {
+      "animal" : "Bighorn Sheep",
+      "type": "mammal"
+
+  }, {
+      "animal": "Tiger Salamander",
+      "type": "amphibian",
+      "subtype": "salamander"
+  }, {
+      "animal": "Northern Leopard Frog",
+      "type": "amphibian",
+      "subtype": "frog"
+  }, {
+      "animal": "Great Basin Collared Lizard",
+      "type": "reptile",
+      "subtype": "lizard"
+  }, {
+      "animal": "Desert Horned Lizard",
+      "type": "reptile",
+      "subtype": "lizard"
+  }, {
+      "animal": "Greater Short-horned Lizard",
+      "type": "reptile",
+      "subtype": "lizard"
+  }, {
+      "animal": "Western Skink",
+      "type": "reptile",
+      "subtype": "lizard"
+  }, {
+      "animal": "Gila Monster",
+      "type": "reptile",
+      "subtype": "lizard"
+  }, {
+      "animal": "Desert Tortoise",
+      "type": "reptile",
+      "subtype": "tortoise"
+  }, {
+      "animal": "Western Patch-nosed Snake",
+      "type": "reptile",
+      "subtype": "snake"
+  }, {
+      "animal": "Sonoran Mountain Kingsnake",
+      "type": "reptile",
+      "subtype": "snake"
+  }, {
+      "animal": "Terrestrial Gartersnake",
+      "type": "reptile",
+      "subtype": "snake"
+  }, {
+      "animal": "Western Rattlesnake",
+      "type": "reptile",
+      "subtype": "snake"
+  }, {
+      "animal": "Flannelmouth Sucker",
+      "type": "reptile",
+      "subtype": "snake"
+  }
+]

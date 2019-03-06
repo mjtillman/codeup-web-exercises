@@ -53,6 +53,14 @@
 
     // TODO: Create an ajax GET request for /data/inventory.json
 
+
+    function buttonPress() {
+        console.log('You pressed the button');
+        $.ajax('data/inventory.json')
+            .done(dataPoster)
+            .fail(dataFail);
+    }
+
     function categoryStringGenerator(categories) {
         let str = '';
         for (let i = 0; i < categories.length; i++) {
@@ -61,26 +69,28 @@
         return str;
     }
 
-    $('#refresh').on('click', function() {
-        console.log('You pressed the button');
-        dataPoster();
-    });
-
-    function dataPoster() {
-        $.ajax('data/inventory.json').done(function (data, status, req) {
-            for (let i = 0; i < data.length; i++) {
-                toolStr += '<tr><td>' + data[i].title + '</td><td>' +
-                    data[i].quantity + '</td><td>' +
-                    data[i].price.toFixed(2) + '</td><td>' +
-                    categoryStringGenerator(data[i].categories) +
-                    '</td></tr>';
-            }
-            $('#insertProducts').html(toolStr);
-        });
+    function dataPoster(data, status, jqXhr) {
+        let toolStr = '';
+        for (let i = 0; i < data.length; i++) {
+            toolStr += '<tr><td>' + data[i].title + '</td><td>' +
+                data[i].quantity + '</td><td>' +
+                data[i].price.toFixed(2) + '</td><td>' +
+                categoryStringGenerator(data[i].categories) +
+                '</td></tr>';
+        }
+        $('#insertProducts').html(toolStr);
     }
 
-    let toolStr = '';
-    dataPoster();
+    function dataFail(jqXhr, status, error) {
+        let toolStr = '<tr><td>Error 404 - Data not found</td></tr>';
+        $('#insertProducts').html(toolStr);
+    }
+
+    $.ajax('data/inventory.json')
+            .done(dataPoster)
+            .fail(dataFail);
+
+    $('#refresh').on('click', buttonPress)
 
 })();
 </script>

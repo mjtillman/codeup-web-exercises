@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Joke and Quote Page</title>
+    <style>
+        main {
+            font-family: sans-serif;
+            text-align: center;
+        }
+        div {
+            display: inline-block;
+        }
+        #report {
+            border: 1px solid black;
+        }
+        td {
+            padding: 0 1em;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <h1>GitHub Report</h1>
+        <div id="report">
+
+        </div>
+    </main>
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script>
+
+
+function maxEyeColor(eyeColors) {
+    if (eyeColors.blue > eyeColors.brown &&
+        eyeColors.blue > eyeColors.green) {
+
+       return 'blue';
+
+    } else if (eyeColors.brown > eyeColors.blue &&
+               eyeColors.brown > eyeColors.green) {
+
+        return 'brown';
+
+    } else if (eyeColors.green > eyeColors.blue &&
+               eyeColors.green > eyeColors.brown) {
+
+        return 'green';
+
+    } else if (eyeColors.green === eyeColors.blue ||
+               eyeColors.blue === eyeColors.brown ||
+               eyeColors.brown === eyeColors.green) {
+
+        return 'none';
+    }
+}
+
+function reportObjGenerator(users) {
+    let report = {
+        active: 0,
+        balanceSum: 0,
+        balanceAvg: 0,
+        ageSum: 0,
+        avgAge: 0,
+        men: 0,
+        women: 0,
+        eyeColors: {
+            blue: 0,
+            brown: 0,
+            green: 0
+        },
+        maxEyeColor: 0
+    };
+
+    let num = 0;
+
+    users.forEach(function (user) {
+        // counts occurances of user.isActive = true
+        if (user.isActive) report.active++;
+
+        // translates user.balance into a number (stored as a string)
+        // and sums for averaging outside of loop
+        num = +(user.balance.substring(1, 2) + user.balance.substring(3));
+        report.balanceSum += +num;
+
+        // stores sum of user ages to average outside of loop
+        report.ageSum += user.age;
+
+        if (user.gender === 'male') report.men++;
+        if (user.gender === 'female') report.women++;
+
+        switch (user.eyeColor) {
+            case 'blue':
+                report.eyeColors.blue += 1;
+                break;
+            case 'brown':
+                report.eyeColors.brown += 1;
+                break;
+            case 'green':
+                report.eyeColors.green += 1;
+        }
+    });
+
+    report.maxEyeColor = maxEyeColor(report.eyeColors);
+    report.balanceAvg = (report.balanceSum / users.length).toFixed(2);
+    report.avgAge = Math.round(report.ageSum / users.length);
+
+    return report;
+}
+
+function htmlGenerator(users, report) {
+    let string = '<table><tr><td>';
+    string += 'Number of profiles:</td><td>' + users.length;
+    string += '</td></tr><tr><td>';
+    string += 'Active profiles:</td><td>' + report.active;
+    string += '</td></tr><tr><td>';
+    string += 'Sum of all balances:</td><td>$' + report.balanceSum;
+    string += '</td></tr><tr><td>';
+    string += 'Avg user balance:</td><td>$' + report.balanceAvg;
+    string += '</td></tr><tr><td>';
+    string += 'Average user age:</td><td>' + report.avgAge;
+    string += '</td></tr><tr><td>';
+    string += 'Men:</td><td>' + report.men;
+    string += '</td></tr><tr><td>';
+    string += 'Women:</td><td>' + report.women;
+    string += '</td></tr><tr><td>';
+    string += 'Most common eye color:</td><td>' + report.maxEyeColor;
+    string += '</td></tr></table>';
+    return string;
+}
+
+function reportDisplay(users) {
+    let report = reportObjGenerator(users);
+    $('#report').html(htmlGenerator(users, report));
+}
+
+$.ajax('data/profiles.json')
+    .done(reportDisplay)
+
+</script>
+</html>

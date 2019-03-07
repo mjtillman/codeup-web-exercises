@@ -1,0 +1,17 @@
+.animal-card {
+    display: inline-block;
+    width: 200px;
+    padding: 1em 2em;
+    margin: 1em;
+    border-radius: 1em;
+    background-color: #7cd0a4;
+}
+
+.animal-name {
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+.animal-body {
+    font-size: 0.4em;
+}

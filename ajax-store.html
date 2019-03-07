@@ -40,8 +40,10 @@
                 </tr>
             </thead>
             <tbody id="insertProducts">
+
             </tbody>
         </table>
+
     </main>
 
 <!--    jQuery    -->
@@ -50,9 +52,6 @@
 <script>
 (function() {
     "use strict";
-
-    // TODO: Create an ajax GET request for /data/inventory.json
-
 
     function buttonPress() {
         console.log('You pressed the button');
@@ -63,32 +62,34 @@
 
     function categoryStringGenerator(categories) {
         let str = '';
-        for (let i = 0; i < categories.length; i++) {
-            str += categories[i] + '<br>';
-        }
+        categories.forEach(function(cate) {
+            str += cate + '<br>';
+        });
         return str;
     }
 
     function dataPoster(data, status, jqXhr) {
+        console.log(typeof data);
         let toolStr = '';
-        for (let i = 0; i < data.length; i++) {
-            toolStr += '<tr><td>' + data[i].title + '</td><td>' +
-                data[i].quantity + '</td><td>' +
-                data[i].price.toFixed(2) + '</td><td>' +
-                categoryStringGenerator(data[i].categories) +
-                '</td></tr>';
-        }
+
+        data.forEach(function(item) {
+            toolStr += '<tr><td>' + item.title + '</td><td>';
+            toolStr += item.quantity + '</td><td>$';
+            toolStr += item.price.toFixed(2) + '</td><td>';
+            toolStr += categoryStringGenerator(item.categories);
+            toolStr += '</td></tr>';
+        });
+
         $('#insertProducts').html(toolStr);
     }
 
     function dataFail(jqXhr, status, error) {
-        let toolStr = '<tr><td>Error 404 - Data not found</td></tr>';
-        $('#insertProducts').html(toolStr);
+        $('#insertProducts').html('<tr><td>Error 404 - Data not found</td></tr>');
     }
 
     $.ajax('data/inventory.json')
-            .done(dataPoster)
-            .fail(dataFail);
+        .done(dataPoster)
+        .fail(dataFail);
 
     $('#refresh').on('click', buttonPress)
 

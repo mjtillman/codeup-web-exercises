@@ -1,0 +1,83 @@
+/*font-family: 'Bungee Shade', cursive;*/
+/*font-family: 'Montserrat Alternates', sans-serif;*/
+/*font-family: 'Bungee', cursive;*/
+
+/*#19B3E4;*/
+/*#1B8DAC;*/
+/*#E6D192;*/
+/*#E6A929;*/
+/*#E8802C;*/
+
+/*4A5250*/
+/*A4BB92*/
+/*E6D192*/
+/*C0B682*/
+/*916753*/
+
+* {
+    padding: 0;
+    spacing: 0
+}
+
+.weather {
+    background-color: #E6D192;
+    display: inline-block;
+    width: 150px;
+    border-radius: 0.3em;
+    margin: 0.4em;
+    padding: 0.2em;
+
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.8em;
+}
+
+.temp {
+    margin: 0 0.3em;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+img {
+    width: 80px;
+    height: 80px;
+}
+#map {
+    height: 400px;  /* The height is 400 pixels */
+    width: 100%;  /* The width is the width of the web page */
+}
+
+body {
+    background-color: #E6A929;
+}
+
+header, body {
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+    font-family: 'Bungee Shade', cursive;
+    font-size: 3em;
+
+}
+
+h2 {
+    margin: 0;
+    font-family: 'Bungee', cursive;
+    font-size: 2em;
+    letter-spacing: 0.5em;
+    color: #E6D192;
+}
+
+h5 {
+    margin: 0.3em 0 0 0;
+    font-family: 'Bungee', cursive;
+    font-size: 1.2em;
+}
+
+h6 {
+    margin: 0 0 1em 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1em;
+    text-transform: uppercase;
+}

@@ -3,25 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>Weather Map Exercise</title>
+    <link href="https://fonts.googleapis.com/css?family=Bungee|Bungee+Shade|Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href='css/weather_map.css'>
 </head>
-<link rel='stylesheet'
-      href='https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T'
-      crossorigin='anonymous'>
 <body>
+<header>
+    <h1>Weather report</h1>
+    <h2 id="city">San Antonio</h2>
+    <!--<img src="icons/sleet.svg">-->
+</header>
 <main>
-    <header>
-        <h1>Weather Map Exercise</h1>
-    </header>
+    <div id='today' class="weather">
 
+    </div>
+    <div id='tomorrow' class="weather">
 
+    </div>
+    <div id='dayAfter' class="weather">
 
-
+    </div>
 </main>
+<article>
+    <div id="map"></div>
+</article>
 </body>
 
 <script src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
 <script src='.gitignore/keys.js'></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAs0ZYSIm1hSMKTCa4oPc9crDZPMXdT3GY"></script>
 <script src='js/weather_map.js'></script>
 
 </html>

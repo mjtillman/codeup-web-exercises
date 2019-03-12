@@ -1,0 +1,16 @@
+* {
+    border: 0;
+    margin: 0;
+    text-align: center;
+}
+
+div {
+    width: 500px;
+    height: 600px;
+}
+
+button {
+    width: 100px;
+    height: 100px;
+    background-color: #3B94D9;
+}

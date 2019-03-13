@@ -1,5 +1,12 @@
 'use strict';
 
+function rot13(message) {
+    message.forEach(m => console.log(m.charCodeAt(0));
+    console.log(message);
+}
+
+rot13('Here is a message to decode');
+
 // function humanReadable(seconds) {
 //
 //     let time = seconds;

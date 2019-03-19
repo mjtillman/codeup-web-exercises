@@ -9,33 +9,40 @@
 <h1>Slide Puzzle</h1>
 <h4>Use arrow keys (← ↑ ↓ →) to move tiles.
 </h4>
-<div class='puzzle-container'>
-    <div class='puzzle-row'>
+<div class='container'>
+    <div class='row'>
         <div id='place-00'></div>
         <div id='place-01'></div>
         <div id='place-02'></div>
         <div id='place-03'></div>
     </div>
-    <div class='puzzle-row'>
+    <div class='row'>
         <div id='place-04'></div>
         <div id='place-05'></div>
         <div id='place-06'></div>
         <div id='place-07'></div>
     </div>
-    <div class='puzzle-row'>
+    <div class='row'>
         <div id='place-08'></div>
         <div id='place-09'></div>
         <div id='place-10'></div>
         <div id='place-11'></div>
     </div>
-    <div class='puzzle-row'>
+    <div class='row'>
         <div id='place-12'></div>
         <div id='place-13'></div>
         <div id='place-14'></div>
         <div id='place-15'></div>
     </div>
+    <div class='row'>
+        <div class="info">
+            Moves: <span id="moves"></span>
+        </div>
+        <div class="info">
+            <button id="shuffle">Shuffle</button>
+        </div>
+    </div>
 </div>
-<button id="shuffle">Shuffle</button>
 
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script src="js/slide-puzzle-2.js"></script>

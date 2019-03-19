@@ -2,23 +2,31 @@
 
 let game = {
 
-    place: [
+    originalPlace: [
         '#place-00', '#place-01', '#place-02', '#place-03',
         '#place-04', '#place-05', '#place-06', '#place-07',
         '#place-08', '#place-09', '#place-10', '#place-11',
         '#place-12', '#place-13', '#place-14', '#place-15'
     ],
 
-    state: [
+    originalState: [
         'class-00', 'class-01', 'class-02', 'class-03',
         'class-04', 'class-05', 'class-06', 'class-07',
         'class-08', 'class-09', 'class-10', 'class-11',
         'class-12', 'class-13', 'class-14', ' '
     ],
 
+    place: this.originalPlace,
+
+    state: this.originalState,
+
     currentBlank: 15,
+    moves: 0,
+    canMove: true,
 
     shuffleAndPlace: function() {
+        this.place = this.originalPlace;
+        this.state = this.originalState;
         var currentIndex = this.state.length;
         var temporaryValue, randomIndex;
 
@@ -52,21 +60,9 @@ let game = {
             case 15: this.currentBlank = 15; break;
         }
 
-        $(this.place[0]).removeClass();
-        $(this.place[1]).removeClass();
-        $(this.place[2]).removeClass();
-        $(this.place[3]).removeClass();
-        $(this.place[4]).removeClass();
-        $(this.place[5]).removeClass();
-        $(this.place[6]).removeClass();
-        $(this.place[7]).removeClass();
-        $(this.place[8]).removeClass();
-        $(this.place[9]).removeClass();
-        $(this.place[10]).removeClass();
-        $(this.place[11]).removeClass();
-        $(this.place[12]).removeClass();
-        $(this.place[13]).removeClass();
-        $(this.place[14]).removeClass();
+        this.place.forEach((pl) => {
+            $(pl).removeClass();
+        });
 
         $(this.place[0]).addClass(this.state[0]);
         $(this.place[1]).addClass(this.state[1]);
@@ -84,46 +80,72 @@ let game = {
         $(this.place[13]).addClass(this.state[13]);
         $(this.place[14]).addClass(this.state[14]);
         $(this.place[15]).addClass(this.state[15]);
+
+        this.moves = 0;
+        $('#moves').text(game.moves);
     }
 };
 
 game.shuffleAndPlace();
 
 $('#shuffle').on('click', function() {
+    game.canMove = true;
     game.shuffleAndPlace();
 });
 
 $(document).keydown(function () {
-    switch (event.key) {
-        case 'ArrowUp':
-            game.currentBlank = upSwap(game.currentBlank);
-            break;
-        case 'ArrowLeft':
-            game.currentBlank = leftSwap(game.currentBlank);
-            break;
-        case 'ArrowRight':
-            game.currentBlank = rightSwap(game.currentBlank);
-            break;
-        case 'ArrowDown':
-            game.currentBlank = downSwap(game.currentBlank);
+    if (game.canMove) {
+        switch (event.key) {
+            case 'ArrowUp':
+                game.currentBlank = upSwap(game.currentBlank);
+                break;
+            case 'ArrowLeft':
+                game.currentBlank = leftSwap(game.currentBlank);
+                break;
+            case 'ArrowRight':
+                game.currentBlank = rightSwap(game.currentBlank);
+                break;
+            case 'ArrowDown':
+                game.currentBlank = downSwap(game.currentBlank);
+        }
+
+        game.moves = solveCheck(game.moves);
     }
-    // solveCheck(game.state);
 });
 
-// function solveCheck(current) {
-//     let solved = [
-//         'class-00', 'class-01', 'class-02', 'class-03',
-//         'class-04', 'class-05', 'class-06', 'class-07',
-//         'class-08', 'class-09', 'class-01', 'class-11',
-//         'class-12', 'class-13', 'class-14', 'class-15',
-//     ];
-//
-//     if (current === solved) {
-//         console.log('solved');
-//     } else {
-//         console.log('not solved')
-//     }
-// }
+function solveCheck(moves) {
+    moves++;
+
+    let solve = ['00', '01', '02', '03', '04', '05', '06', '07', '08',
+    '09', '10', '11', '12', '13', '14'];
+
+    let inTheRightPlace =
+        [false, false, false, false,
+         false, false, false, false,
+         false, false, false, false,
+         false, false, false];
+
+    let rightCounter = 0;
+
+    game.place.forEach( function(place, i) {
+        if ($(place).hasClass(`class-${solve[i]}`)) {
+            inTheRightPlace[i] = true;
+        }
+    });
+
+    inTheRightPlace.forEach( function(rightPlace) {
+        if (rightPlace === true) rightCounter++;
+    });
+
+    if (rightCounter === 15) {
+        console.log(`YOU SOLVED THE PUZZLE`);
+        solved();
+    } else {
+        $('#moves').html(moves);
+        return moves;
+    }
+
+}
 
 function swap(x, y) {
     $(game.place[x]).removeClass(game.state[x]).addClass(game.state[y]);
@@ -213,4 +235,9 @@ function downSwap(currentBlank) {
         case 15: currentBlank = swap(15, 11)
     }
     return currentBlank;
+}
+
+function solved() {
+    game.canMove = false;
+    $('#place15').addClass('class-15');
 }

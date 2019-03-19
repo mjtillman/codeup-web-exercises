@@ -2,20 +2,25 @@
     padding: 0;
     border: 0;
     margin: 0;
-    text-align: center;
 }
 
 body {
     margin-top: 3em;
+    text-align: center;
 }
 
-.puzzle-container {
-    width: fit-content;
-    margin: 2em auto;
+.container {
+    display: table;
+    margin: 0 auto;
 }
 
-.puzzle-row {
-    width: fit-content;
+.row  {
+    display: table-row;
+}
+
+div {
+    display: table-cell;
+    border-right: 1px solid white;
 }
 
 #shuffle {
@@ -23,63 +28,83 @@ body {
     border: 1px solid black;
 }
 
+.info {
+    width: 200px;
+    display: inline-block;
+}
+
 #place-00, #place-01, #place-02, #place-03,
 #place-04, #place-05, #place-06, #place-07,
 #place-08, #place-09, #place-10, #place-11,
 #place-12, #place-13, #place-14, #place-15 {
     display: inline-block;
-    width: 300px;
-    height: 300px;
-    margin: 0;
+    width: 100px;
+    height: 100px;
     background-color: lightgrey;
 }
 
 .class-00 {
-    background-image: url('../images/slide-puzzle-2/00.png');
+    background-image: url('../images/slide-puzzle-2/00/00.png');
+    background-size: contain;
 }
 .class-01 {
-    background-image: url('../images/slide-puzzle-2/01.png');
+    background-image: url('../images/slide-puzzle-2/00/01.png');
+    background-size: contain;
 }
 .class-02 {
-    background-image: url('../images/slide-puzzle-2/02.png');
+    background-image: url('../images/slide-puzzle-2/00/02.png');
+    background-size: contain;
 }
 .class-03 {
-    background-image: url('../images/slide-puzzle-2/03.png');
+    background-image: url('../images/slide-puzzle-2/00/03.png');
+    background-size: contain;
 }
 .class-04 {
-    background-image: url('../images/slide-puzzle-2/04.png');
+    background-image: url('../images/slide-puzzle-2/00/04.png');
+    background-size: contain;
 }
 .class-05 {
-    background-image: url('../images/slide-puzzle-2/05.png');
+    background-image: url('../images/slide-puzzle-2/00/05.png');
+    background-size: contain;
 }
 .class-06 {
-    background-image: url('../images/slide-puzzle-2/06.png');
+    background-image: url('../images/slide-puzzle-2/00/06.png');
+    background-size: contain;
 }
 .class-07 {
-    background-image: url('../images/slide-puzzle-2/07.png');
+    background-image: url('../images/slide-puzzle-2/00/07.png');
+    background-size: contain;
 }
 .class-08 {
-    background-image: url('../images/slide-puzzle-2/08.png');
+    background-image: url('../images/slide-puzzle-2/00/08.png');
+    background-size: contain;
 }
 .class-09 {
-    background-image: url('../images/slide-puzzle-2/09.png');
+    background-image: url('../images/slide-puzzle-2/00/09.png');
+    background-size: contain;
 }
 .class-10 {
-    background-image: url('../images/slide-puzzle-2/10.png');
+    background-image: url("../images/slide-puzzle-2/00/10.png");
+    background-size: contain;
 }
 .class-11 {
-    background-image: url('../images/slide-puzzle-2/11.png');
+    background-image: url("../images/slide-puzzle-2/00/11.png");
+    background-size: contain;
 }
 .class-12 {
-    background-image: url('../images/slide-puzzle-2/12.png');
+    background-image: url("../images/slide-puzzle-2/00/12.png");
+    background-size: contain;
 }
 .class-13 {
-    background-image: url('../images/slide-puzzle-2/13.png');
+    background-image: url("../images/slide-puzzle-2/00/13.png");
+    background-size: contain;
 }
 .class-14 {
-    background-image: url('../images/slide-puzzle-2/14.png');
+    background-image: url("../images/slide-puzzle-2/00/14.png");
+    background-size: contain;
 }
 
-/*.class-15 {*/
-/*background-image: url('images/slide-puzzle-2/15.png');*/
-/*}*/
+.class-15 {
+    background-image: url('../images/slide-puzzle-2/00/15.png');
+    background-size: contain;
+}

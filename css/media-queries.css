@@ -1,0 +1,141 @@
+/**************
+*             *
+*   GENERAL   *
+*             *
+**************/
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: arial, sans-serif;
+}
+
+body {
+    background-color: #eee;
+    margin: 10px;
+}
+
+.alert-info {
+    background-color: #cfffff;
+    border: 2px solid #cccccc;
+    padding: 15px;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.alert-info > a  {
+    text-decoration: none;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+.nav-links>li {             /* combined selectors for elements in nav-list */
+    list-style-type: none;
+    background: #cccccc;
+    text-align: center;
+    padding: 15px;
+    margin: 10px 0; /* changed to apply only to top/bottom margin */
+}
+/*added 1/30 */
+.header-img>img {
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+section {
+    margin-bottom: 20px;
+}
+
+section>h2 {
+    margin-bottom: 10px;
+}
+
+.sub-section {
+    font-style: italic;
+}
+
+/*************
+*            *
+*   footer   *
+*            *
+*************/
+footer {
+    padding: 1em 0;
+    text-align: center;
+}
+
+#social-media-links {
+    display: flex;
+    justify-content: space-around;
+    padding-top: 2em;
+    padding-bottom: 1em;
+}
+#social-media-links>img {
+    height: 5em;
+}
+
+/**************
+*             *
+*   desktop   *
+*             *
+**************/
+
+@media only screen and (min-width: 890px) {
+    body {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+    .hidden-on-desktop {
+        display: none;
+    }
+    h1 {
+        text-align: left;
+        float: left;
+        margin-bottom: 0;
+        padding: 15px 0;
+    }
+    nav {
+        float: right;
+        padding-right: 5px;
+    }
+    .header-img {
+        clear: both;
+        padding-top: 30px;
+    }
+    .nav-links>li {
+        display: inline-block;
+        background: none;
+
+    }
+    .main {
+        width: calc(66% - 2em);
+        float: left;
+        padding-right: 2em;
+    }
+    .sub-section {
+        margin-bottom: 300px;
+    }
+    h2 {
+        padding-bottom: 1em;
+    }
+    footer {
+        margin: 200px 0 100px 0;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row-reverse;
+    }
+    footer>p {
+        width: 50%;
+        text-align: right;
+        align-self: center;
+    }
+    #social-media-links {
+        justify-content: space-between;
+        padding: 0;
+        width: 30%;
+    }
+    #social-media-links>a>img  {
+        height: 2.5em;
+    }
+
+}

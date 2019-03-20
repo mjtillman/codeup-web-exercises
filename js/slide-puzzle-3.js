@@ -23,16 +23,18 @@ let game = {
     canMove: true,
     wasSwapped: false,
 
-    reset: function () {
+    reset: () => {
         this.state =  [
             'class-00', 'class-01', 'class-02', 'class-03',
             'class-04', 'class-05', 'class-06', 'class-07',
             'class-08', 'class-09', 'class-10', 'class-11',
-            'class-12', 'class-13', 'class-14', 'blank'];
+            'class-12', 'class-13', 'class-14', 'blank'
+        ];
+
         this.currentBlank = 15;
     },
 
-    shuffleAndPlace: function() {
+    shuffleAndPlace: () => {
         this.reset();
 
         $('#shuffle').html('Shuffle');
@@ -99,11 +101,16 @@ let game = {
 
 game.shuffleAndPlace();
 
-$('#shuffle').on('click', function() {
+//  Shuffle Button Listener
+const shuffle = document.getElementById('shuffle');
+
+shuffle.addEventListener('click', e => {
     game.canMove = true;
 });
 
-$(document).keydown(function () {
+//  Keydown Listener
+window.addEventListener('keydown', e => {
+
     if (game.canMove) {
         switch (event.key) {
             case 'ArrowUp':
@@ -126,7 +133,7 @@ $(document).keydown(function () {
     }
 });
 
-function solveCheck(moves) {
+const solveCheck = (moves) => {
     moves++;
 
     let solve = ['00', '01', '02', '03', '04', '05', '06', '07', '08',
@@ -163,18 +170,18 @@ function solveCheck(moves) {
         return moves;
     }
 
-}
+};
 
-function swap(x, y) {
+const swap = (x, y) => {
     $(game.place[x]).removeClass(game.state[x]).addClass(game.state[y]);
     $(game.place[y]).removeClass(game.state[y]).addClass(game.state[x]);
     game.state[x] = game.state[y];
     game.state[y] = ' ';
     game.wasSwapped = true;
     return y;
-}
+};
 
-function upSwap(currentBlank) {
+const upSwap = (currentBlank) => {
     switch (currentBlank) {
         case 0:  currentBlank = swap(0, 4);   break;
         case 1:  currentBlank = swap(1, 5);   break;
@@ -183,7 +190,7 @@ function upSwap(currentBlank) {
 
         case 4:  currentBlank = swap(4, 8);   break;
         case 5:  currentBlank = swap(5, 9);   break;
-        case 6:  currentBlank = swap(6, 10);   break;
+        case 6:  currentBlank = swap(6, 10);  break;
         case 7:  currentBlank = swap(7, 11);  break;
 
         case 8:  currentBlank = swap(8, 12);  break;
@@ -192,9 +199,9 @@ function upSwap(currentBlank) {
         case 11: currentBlank = swap(11, 15);
     }
     return currentBlank;
-}
+};
 
-function leftSwap(currentBlank) {
+const leftSwap = (currentBlank) => {
     switch (currentBlank) {
         case 0: currentBlank = swap(0, 1); break;
         case 1: currentBlank = swap(1, 2); break;
@@ -213,9 +220,9 @@ function leftSwap(currentBlank) {
         case 14: currentBlank = swap(14, 15);
     }
     return currentBlank;
-}
+};
 
-function rightSwap(currentBlank) {
+const rightSwap = (currentBlank) => {
     switch (currentBlank) {
         case 1: currentBlank = swap( 1, 0); break;
         case 2: currentBlank = swap( 2, 1); break;
@@ -234,27 +241,27 @@ function rightSwap(currentBlank) {
         case 15: currentBlank = swap(15, 14);
     }
     return currentBlank;
-}
+};
 
-function downSwap(currentBlank) {
+const downSwap = (currentBlank) => {
     switch (currentBlank) {
         case 4: currentBlank = swap(4, 0); break;
         case 5: currentBlank = swap(5, 1); break;
         case 6: currentBlank = swap(6, 2); break;
         case 7: currentBlank = swap(7, 3); break;
 
-        case 8: currentBlank = swap(8, 4); break;
-        case 9: currentBlank = swap(9, 5); break;
+        case 8: currentBlank = swap(8, 4);   break;
+        case 9: currentBlank = swap(9, 5);   break;
         case 10: currentBlank = swap(10, 6); break;
         case 11: currentBlank = swap(11, 7); break;
 
-        case 12: currentBlank = swap(12, 8); break;
+        case 12: currentBlank = swap(12, 8);  break;
         case 13: currentBlank = swap(13 , 9); break;
         case 14: currentBlank = swap(14, 10); break;
         case 15: currentBlank = swap(15, 11)
     }
     return currentBlank;
-}
+};
 
 // $('#almostSolved').on('click', almostSolve);
 //

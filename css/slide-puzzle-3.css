@@ -34,6 +34,8 @@ h4 {
 div {
     display: table-cell;
     border-right: 1px solid white;
+    border-bottom: 1px solid white;
+    margin-bottom: -4px;
 }
 
 .shuffle {
@@ -54,72 +56,6 @@ div {
     width: 80px;
     height: 80px;
     background-color: lightgrey;
-}
-
-.class-00 {
-    background-image: url('../images/slide-puzzle-2/00/00.png');
-    background-size: contain;
-}
-.class-01 {
-    background-image: url('../images/slide-puzzle-2/00/01.png');
-    background-size: contain;
-}
-.class-02 {
-    background-image: url('../images/slide-puzzle-2/00/02.png');
-    background-size: contain;
-}
-.class-03 {
-    background-image: url('../images/slide-puzzle-2/00/03.png');
-    background-size: contain;
-}
-.class-04 {
-    background-image: url('../images/slide-puzzle-2/00/04.png');
-    background-size: contain;
-}
-.class-05 {
-    background-image: url('../images/slide-puzzle-2/00/05.png');
-    background-size: contain;
-}
-.class-06 {
-    background-image: url('../images/slide-puzzle-2/00/06.png');
-    background-size: contain;
-}
-.class-07 {
-    background-image: url('../images/slide-puzzle-2/00/07.png');
-    background-size: contain;
-}
-.class-08 {
-    background-image: url('../images/slide-puzzle-2/00/08.png');
-    background-size: contain;
-}
-.class-09 {
-    background-image: url('../images/slide-puzzle-2/00/09.png');
-    background-size: contain;
-}
-.class-10 {
-    background-image: url("../images/slide-puzzle-2/00/10.png");
-    background-size: contain;
-}
-.class-11 {
-    background-image: url("../images/slide-puzzle-2/00/11.png");
-    background-size: contain;
-}
-.class-12 {
-    background-image: url("../images/slide-puzzle-2/00/12.png");
-    background-size: contain;
-}
-.class-13 {
-    background-image: url("../images/slide-puzzle-2/00/13.png");
-    background-size: contain;
-}
-.class-14 {
-    background-image: url("../images/slide-puzzle-2/00/14.png");
-    background-size: contain;
-}
-
-.class-15 {
-    background-image: url('../images/slide-puzzle-2/00/15.png');
-    background-size: contain;
 }
 
 .blank {

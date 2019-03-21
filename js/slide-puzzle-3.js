@@ -1,5 +1,28 @@
 "use strict";
 
+
+const selectPuzzle = () => {
+    let which = Math.floor(Math.random() * 2);
+
+    console.log(which);
+
+    if (which === 0) {
+        return 'A';
+    } else {
+        return 'B';
+    }
+};
+
+const reset = () => {
+    if (game.whichPuzzle === 'A') {
+        game.state = game.originalStateA;
+    } else if (game.whichPuzzle === 'B') {
+        game.state = game.originalStateB;
+    }
+
+    game.currentBlank = 15;
+};
+
 let game = {
 
     place: [
@@ -9,11 +32,18 @@ let game = {
         '#place-12', '#place-13', '#place-14', '#place-15'
     ],
 
-    originalState: [
-        'class-00', 'class-01', 'class-02', 'class-03',
-        'class-04', 'class-05', 'class-06', 'class-07',
-        'class-08', 'class-09', 'class-10', 'class-11',
-        'class-12', 'class-13', 'class-14', 'blank'
+    originalStateA: [
+        'class-A-00', 'class-A-01', 'class-A-02', 'class-A-03',
+        'class-A-04', 'class-A-05', 'class-A-06', 'class-A-07',
+        'class-A-08', 'class-A-09', 'class-A-10', 'class-A-11',
+        'class-A-12', 'class-A-13', 'class-A-14', 'blank'
+    ],
+
+    originalStateB: [
+        'class-B-00', 'class-B-01', 'class-B-02', 'class-B-03',
+        'class-B-04', 'class-B-05', 'class-B-06', 'class-B-07',
+        'class-B-08', 'class-B-09', 'class-B-10', 'class-B-11',
+        'class-B-12', 'class-B-13', 'class-B-14', 'blank'
     ],
 
     state: [],
@@ -23,24 +53,15 @@ let game = {
     canMove: true,
     wasSwapped: false,
 
-    reset: () => {
-        this.state =  [
-            'class-00', 'class-01', 'class-02', 'class-03',
-            'class-04', 'class-05', 'class-06', 'class-07',
-            'class-08', 'class-09', 'class-10', 'class-11',
-            'class-12', 'class-13', 'class-14', 'blank'
-        ];
-
-        this.currentBlank = 15;
-    },
+    whichPuzzle: selectPuzzle(),
 
     shuffleAndPlace: () => {
-        this.reset();
+        reset();
 
         $('#shuffle').html('Shuffle');
 
-        var currentIndex = this.state.length;
-        var temporaryValue, randomIndex;
+        let currentIndex = game.state.length;
+        let temporaryValue, randomIndex;
 
         while (0 !== currentIndex) {
             // Pick a remaining element...
@@ -48,58 +69,60 @@ let game = {
             currentIndex -= 1;
 
             // And swap it with the current element.
-            temporaryValue = this.state[currentIndex];
-            this.state[currentIndex] = this.state[randomIndex];
-            this.state[randomIndex] = temporaryValue;
+            temporaryValue = game.state[currentIndex];
+            game.state[currentIndex] = game.state[randomIndex];
+            game.state[randomIndex] = temporaryValue;
         }
 
-        switch (this.state.indexOf('blank')) {
-            case 0: this.currentBlank = 0; break;
-            case 1: this.currentBlank = 1; break;
-            case 2: this.currentBlank = 2; break;
-            case 3: this.currentBlank = 3; break;
-            case 4: this.currentBlank = 4; break;
-            case 5: this.currentBlank = 5; break;
-            case 6: this.currentBlank = 6; break;
-            case 7: this.currentBlank = 7; break;
-            case 8: this.currentBlank = 8; break;
-            case 9: this.currentBlank = 10; break;
-            case 10: this.currentBlank = 11; break;
-            case 11: this.currentBlank = 11; break;
-            case 12: this.currentBlank = 12; break;
-            case 13: this.currentBlank = 13; break;
-            case 14: this.currentBlank = 14; break;
-            case 15: this.currentBlank = 15; break;
+        switch (game.state.indexOf('blank')) {
+            case 0: game.currentBlank = 0; break;
+            case 1: game.currentBlank = 1; break;
+            case 2: game.currentBlank = 2; break;
+            case 3: game.currentBlank = 3; break;
+            case 4: game.currentBlank = 4; break;
+            case 5: game.currentBlank = 5; break;
+            case 6: game.currentBlank = 6; break;
+            case 7: game.currentBlank = 7; break;
+            case 8: game.currentBlank = 8; break;
+            case 9: game.currentBlank = 10; break;
+            case 10: game.currentBlank = 11; break;
+            case 11: game.currentBlank = 11; break;
+            case 12: game.currentBlank = 12; break;
+            case 13: game.currentBlank = 13; break;
+            case 14: game.currentBlank = 14; break;
+            case 15: game.currentBlank = 15; break;
         }
 
-        this.place.forEach((pl) => {
+        game.place.forEach((pl) => {
             $(pl).removeClass();
         });
 
-        $(this.place[0]).addClass(this.state[0]);
-        $(this.place[1]).addClass(this.state[1]);
-        $(this.place[2]).addClass(this.state[2]);
-        $(this.place[3]).addClass(this.state[3]);
-        $(this.place[4]).addClass(this.state[4]);
-        $(this.place[5]).addClass(this.state[5]);
-        $(this.place[6]).addClass(this.state[6]);
-        $(this.place[7]).addClass(this.state[7]);
-        $(this.place[8]).addClass(this.state[8]);
-        $(this.place[9]).addClass(this.state[9]);
-        $(this.place[10]).addClass(this.state[10]);
-        $(this.place[11]).addClass(this.state[11]);
-        $(this.place[12]).addClass(this.state[12]);
-        $(this.place[13]).addClass(this.state[13]);
-        $(this.place[14]).addClass(this.state[14]);
-        $(this.place[15]).addClass(this.state[15]);
+        $(game.place[0]).addClass(game.state[0]);
+        $(game.place[1]).addClass(game.state[1]);
+        $(game.place[2]).addClass(game.state[2]);
+        $(game.place[3]).addClass(game.state[3]);
+        $(game.place[4]).addClass(game.state[4]);
+        $(game.place[5]).addClass(game.state[5]);
+        $(game.place[6]).addClass(game.state[6]);
+        $(game.place[7]).addClass(game.state[7]);
+        $(game.place[8]).addClass(game.state[8]);
+        $(game.place[9]).addClass(game.state[9]);
+        $(game.place[10]).addClass(game.state[10]);
+        $(game.place[11]).addClass(game.state[11]);
+        $(game.place[12]).addClass(game.state[12]);
+        $(game.place[13]).addClass(game.state[13]);
+        $(game.place[14]).addClass(game.state[14]);
+        $(game.place[15]).addClass(game.state[15]);
 
-        this.moves = 0;
+        game.moves = 0;
         $('#moves').text(game.moves);
-        this.canMove = true;
+        game.canMove = true;
     }
 };
 
 game.shuffleAndPlace();
+
+console.log(game.whichPuzzle);
 
 //  Shuffle Button Listener
 const shuffle = document.getElementById('shuffle');
